@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+        }
+        /* body{
+            overflow: hidden;
+        } */
+
+        /* border-collapse: collapse; 清除重複格子 */
+        table,
+        th,
+        td {
+            border: 1px solid green;
+            border-collapse: collapse;
+        }
+
+        #redID {
+            color: red;
+        }
+
+        .greenClass {
+            color: green;
+            text-align: left;
+        
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <!-- 100-10-10-15=65剩餘自動計算 -->
+            <th width="10%">座號</th>
+            <th width="10%">姓名</th>
+            <th width="15%">電話</th>
+            <th id="redID">備註</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>amy</td>
+            <td>111-1111</td>
+            <td class="greenClass">aaa</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>Bob</td>
+            <td>222-2222</td>
+            <td class="greenClass">bbb</td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td>Joy</td>
+            <td>333-3333</td>
+            <td class="greenClass">ccc</td>
+        </tr>
+    </table>
+</body>
+
+</html>

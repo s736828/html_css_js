@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my-div {
+            border: 1px solid red;
+            width: 80%;
+            height: 300px;
+            color: blue;
+        }
+
+        /* 子代選擇器 找下一層p節點 */
+        .my-div>p {
+            color: green;
+        }
+
+        /* 空格 選擇器 找全部 */
+        /* .my-div P {
+            color: brown;
+        } */
+
+        /* 指定my-div以後所有的p兄弟節點 */
+        /* .my-div ~ P{
+            color:chocolate;
+        } */
+
+        /* my-div後面相鄰的第一個p兄弟節點 */
+        /* .my-div+p {
+            color: cornflowerblue;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <div class="my-div">
+        my-div
+        <p>
+            Lorem ipsum dolor sit amet.
+        <div>
+            <p>
+                Lorem ipsum.
+            </p>
+        </div>
+        </p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <p>
+        hello ex p
+    </p>
+    <p>
+        hello ex p
+    </p>
+
+</body>
+
+</html>

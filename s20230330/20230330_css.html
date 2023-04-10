@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- ↑引用外部的css放上面 -->
+
+    <!-- 自已修改的 -->
+    <style>
+        /* simple選擇器 */
+        /* ex. p / id / class */
+        p{
+            color: red;
+            font-size: 30px;
+        }
+        /* 定義id前加# */
+        #p1{
+            color: black;
+        }
+        
+        /* 定義class前加. */
+        .p-class{
+            color:bisque;
+            font-size: 20px;
+        }
+        /* div{
+            color: blueviolet;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 1.inline css寫在行內 -->
+    <h1 style="color: green;">hello css</h1>
+
+    <!-- 2.style css 寫在head 內-->
+    <p id="p1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum saepe unde quasi architecto iusto totam adipisci eveniet incidunt ipsa delectus maiores, at soluta culpa officiis nostrum iste cumque placeat assumenda!
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum saepe unde quasi architecto iusto totam adipisci eveniet incidunt ipsa delectus maiores, at soluta culpa officiis nostrum iste cumque placeat assumenda!
+    </p>
+    <p class="p-class">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum saepe unde quasi architecto iusto totam adipisci eveniet incidunt ipsa delectus maiores, at soluta culpa officiis nostrum iste cumque placeat assumenda!
+    </p>
+    <!-- 3.External外部css -->
+    <div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquam esse deserunt! Neque quaerat deserunt atque quos repudiandae esse, aliquam recusandae voluptatum omnis voluptatem quas, molestiae nobis iure, dolorum consectetur!
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             /* 偽元素 */
+
+        /* 重未連結過 */
+        a:link {
+            color: black;
+        }
+        /* 連結過 */
+        a:visited {
+            color: aqua;
+        }
+        /* 游標滑過去時 */
+        a:hover {
+            color: coral;
+        }
+        /* 滑鼠左鍵壓下 */
+        a:active {
+            color: rgba(189, 121, 20, 0.815);
+        }
+        /* 選到時 */
+        input:focus{
+            background-color:bisque;
+        }
+        /* 偶數 */
+        p:nth-child(odd){
+            color: red;
+        }
+        /* 基數 */
+        p:nth-child(even){
+            color: green;
+        }
+        p:nth-child(2){
+            color:blueviolet;
+        }
+        /* 元素的第一行 */
+        .abc::first-line{
+            color: darkgrey;            
+        }
+        /* 元素的第一個字 */
+        .abc::first-letter{
+            color:black;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="/s20230324/s20230324_01.html">go test</a>
+    <form action="url" method="">
+        <p class="abc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, repellendus atque nisi sed quisquam placeat libero ea et itaque sint perferendis est, vero ipsum,
+             dignissimos veritatis necessitatibus deserunt quaerat cum.
+
+        </p>
+        <fieldset>
+            <legend>表單欄位群組</legend>
+        <p>
+            <label for="name">姓名</label>
+            <input type="text" name="name" id="name">
+        </p>
+        <p>
+            <label for="">國文</label>
+            <input type="number" name="chinese" id="chinese">
+        </p>
+        <p>
+            <label for="">英文</label>
+            <input type="number" name="english" id="english">
+        </p>
+        <p>
+            <label for="">數學</label>
+            <input type="number" name="math" id="math">
+        </p>
+        <p>
+            <label for="">密碼</label>
+            <input type="password" name="pwd" id="pwd">
+        </p>
+        <p>
+            <label for="male">男性</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="female">女性</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="other">中性</label>
+            <input type="radio" name="gender" id="other" value="other">
+        </p>
+        <p>
+            <input type="checkbox" name="love[]" id="read">
+            <label for="read">閱讀</label>
+            <input type="checkbox" name="love[]" id="bike">
+            <label for="bike">騎單車</label>
+            <input type="checkbox" name="love[]" id="ball">
+            <label for="ball">打球</label>
+        </p>
+        <p>
+   
+            <input type="file" name="file" id="file">
+        </p>
+        <p>
+            <input type="date" name="date" id="date">
+            <input type="time" name="dt">
+        </p>
+        <p>
+            <textarea name="textarea" id="textarea" cols="50" rows="5">
+            </textarea>
+        </p>
+        <p>
+            <label for="phone">手機品牌</label>
+            <select name="phone" id="phone">
+                <option value="1">HTC</option>
+                <option value="2">APPLE</option>
+                <option value="3">ASUS</option>
+            </select>
+        </p> 
+        <hr>
+        <p>
+            <input type="hidden" name="vip" id="vip" value="good">
+        </p>
+        <p>
+            <input type="submit" name="" id="" value="送出">
+            <input type="reset" name="" id="">
+        </p>
+    </fieldset>
+    </form>
+
+</body>
+</html>

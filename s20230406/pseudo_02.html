@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table{
+        width: 80%;
+        margin: auto;
+        /* color:white; */
+    }
+    table,tr,td{
+        border: 1px solid green;
+        border-collapse: collapse;
+        text-align: center;
+        color: white;
+        height: 30px;
+    }
+    td:hover{
+        background-color: aquamarine;
+    }
+    tr:nth-child(even){
+        background-color: rgba(66, 66, 141, 0.466);
+    }
+    tr:nth-child(odd){
+        background-color: rgba(184, 85, 85, 0.411);
+    }    
+    /* 元素前面加上內容 */
+    .bouns::before{
+        content: 'NT. ';
+    }
+    /* 元素後面加上內容 */
+    .bouns::after{
+        content: '元';
+    }
+    /* 元素被選取的部份 */
+    ::selection{
+        color:yellow;
+        background-color:red;
+    }
+
+    .vip{
+        color: red;
+    }
+    .last-tr>td{
+        color: blue;
+    }
+
+
+</style>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>age</td>
+            <td>薪水</td>
+        </tr>
+        <tr>
+            <td>cat</td>
+            <td>18</td>
+            <td class="bouns">18000</td>
+        </tr>
+        <tr>
+            <td>dog</td>
+            <td>20</td>
+            <td class="bouns">25000</td>
+        </tr>
+        <tr class="vip">
+            <td>jerry</td>
+            <td>25</td>
+            <td class="bouns">30000</td>
+        </tr>
+        <tr class="last-tr">
+            <td>wof</td>
+            <td>28</td>
+            <td class="bouns">40000</td>
+        </tr>
+    </table>
+</body>
+</html>

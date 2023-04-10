@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲料店</title>
+    <style>
+        table{
+            margin: auto;
+            width: 70%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size:xx-large;                   
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        tr,td,th{
+            /* border: 2px solid green;    */
+            border-radius: 20px;
+        }      
+                
+        th{
+            background-color: aquamarine;               
+        }
+        img{
+            width: 100px;
+            height:80px;
+            border-radius: 20px;                        
+        }
+        td{
+            height: 100px;
+        }
+        
+        tr:nth-child(even){
+            background-color: rgb(152, 192, 192);
+        }
+        tr:nth-child(odd){
+            background-color: rgba(185, 165, 141, 0.979);
+        }
+        td:hover{
+            color:red;
+            background-color:rgb(189, 141, 212)
+            
+            
+        }
+        .abc>td{
+            background-color: coral;
+            height: 30px;
+        }
+        .edf>td{
+            background-color:deepskyblue;
+            height: 30px;
+        }
+        h1{
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1><img src="./image/logo1.jpg" alt="">W e l c o m e </h1>
+    <table>      
+        <tr>
+            <th>序號</th>
+            <th>品名</th>
+            <th>照片</th>
+            <th>數量</th>
+            <th>單價</th>
+            <th>總價</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>珍奶</td>
+            <td><img src="./image/a1.jpg" alt=""></td>
+            <td>2</td>
+            <td>100</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>咖啡</td>
+            <td><img src="./image/coffee1.jpg" alt=""></td>
+            <td>3</td>
+            <td>80</td>
+            <td>240</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>紅茶</td>
+            <td><img src="./image/tea1.jpg" alt=""></td>
+            <td>2</td>
+            <td>50</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>綠茶</td>
+            <td><img src="./image/tea2.jpg" alt=""></td>
+            <td>1</td>
+            <td>40</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>蘋果汁</td>
+            <td><img src="./image/apple1.jpg" alt=""></td>
+            <td>2</td>
+            <td>120</td>
+            <td>240</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>柳橙汁</td>
+            <td><img src="./image/orange1.jpg" alt=""></td>
+            <td>3</td>
+            <td>130</td>
+            <td>390</td>
+        </tr>
+        <tr class="abc">
+            <td>總價</td>
+            <td colspan="4"></td>
+            <!-- <td></td>
+            <td></td>
+            <td></td> -->
+            <td>1210</td>
+        </tr>
+        <tr class="edf">
+            <td>優惠價</td>
+            <td colspan="4">1210*0.8</td>
+            <!-- <td></td>
+            <td></td>
+            <td></td> -->
+            <td>968</td>
+        </tr>
+    </table>    
+</body>
+</html>

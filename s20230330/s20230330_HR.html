@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>人事資料表</legend>
+            <p>
+                <label for="name">姓名</label>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="id1">身份證字號</label>
+                <input type="number" id="id1" name="IDnumber" value="IDnumber">
+            </p>
+            <p>
+                <!-- name要取一樣的值，才會變單選 -->
+                <label for="">姓別：</label>
+
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">男姓</label>
+
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">女姓</label>
+
+                <input type="radio" name="gender" id="other" value="other">
+                <label for="other">中性</label>
+            </p>
+            <p>
+                <label for="ac">地址</label>
+                <input type="text" name="ac" id="ac">
+            </p>
+            <p>
+                <label for="school">學歷</label>
+                <select name="school" id="school">
+                <option value="1">碩士</option>
+                <option value="2">大學</option>
+                <option value="3">專科</option>
+            </select>
+            </p>
+            <p>
+                <label for="date">西元生日</label>
+                <input type="date" id="date">
+
+            </p>
+            <p>
+                <label for="">技能：</label>
+                <input type="checkbox" name="technology" id="html">
+                <label for="html">HTML</label>
+
+                <input type="checkbox" name="technology" id="css">
+                <label for="css">CSS</label>
+
+                <input type="checkbox" name="technology" id="js">
+                <label for="js">JS</label>
+
+                <input type="checkbox" name="technology" id="php">
+                <label for="php">PHP</label>
+            </p>
+            <p>
+                <label for="textarea">自我介紹</label><br>               
+                <textarea name="textarea" id="textarea" cols="50" rows="5">
+            </textarea>
+            </p>
+            <P>
+                <label for="">上傳照片</label>
+                <input type="file" name="file" id="file">
+            </P>
+            <p>
+                <input type="submit" value="送出">
+                <input type="reset" value="重填">
+            </p>
+
+        </fieldset>
+    </form>
+</body>
+
+</html>
