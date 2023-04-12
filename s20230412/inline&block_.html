@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>block VS inline的差別</title>
+    <style>
+        /* div轉型inline元素 */
+        div{
+            display: inline;
+            height: 200px;
+        }
+        /* span轉型block元素 */
+        span{
+            display: block;
+            height: 200px;
+        }
+
+        .nav{
+            background-color: aqua;
+        }
+        /* inline-block 可以調高不能換行*/
+        .nav>li{
+            /* display: inline; */
+            display: inline-block;
+            padding: 20px;
+        } 
+    </style>
+
+</head>
+<body>
+    <!-- block 區塊元素 -->
+    <!-- 會換行，可調高 -->
+    <div>
+        block
+    </div>
+    <div>
+        block
+    </div>
+
+    <!-- inline 行內元素 -->
+    <!-- 不會換行&不可調高-->
+    <span>
+        inline
+    </span>
+    <span>
+        inline
+    </span>
+
+    <!-- inline-box -->
+    <!-- 可調高但不會換行 -->
+        <ul class="nav">      
+            <li><a href="">test1</a></li>        
+            <li><a href="">test2</a></li>
+            <li><a href="">test3</a></li>                                
+        </ul>
+</body>
+
+</html>
