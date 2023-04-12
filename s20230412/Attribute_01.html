@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input {
+            background-color: blue;
+        } */
+        /* Attribute 屬性選擇器*/
+        /* input[type='text'] {
+            background-color: red;
+        }
+        input[type='number'] {
+            background-color: aqua;
+        } */
+
+        /* not 反向選擇 */
+        input:not([type='number']) {
+            background-color: blanchedalmond;
+        }
+        .text2{
+            color: red;
+        }
+        .myDiv>p:not(.text2){
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <P>
+        <label for="name">name</label>
+        <input type="text" name="name" id="name">
+    </P>
+    <p>
+        <label for="age">age</label>
+        <input type="number" name="age" id="age">
+    </p>
+    <p>
+        <label for="name">name2</label>
+        <input type="text" name="name2" id="name2">
+    </p>
+    <p>
+        <label for="age2">age2</label>
+        <input type="number" name="age2" id="age2">
+    </p>
+    <div class="myDiv">
+    <p class="text1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aut?
+    </p>
+    <p class="text2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aut?
+    </p>
+    <p class="text2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aut?
+    </p>
+    <p class="text2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aut?
+    </p>
+</div>
+</body>
+
+</html>
