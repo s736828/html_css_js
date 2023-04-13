@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex row</title>
+    <style>
+        .container-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            background-color: bisque;
+        }
+
+        .container-column {
+            display: flex;
+            flex-direction: column;
+            background-color: lightpink;
+            width: 70%;
+            height: 2000px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            width: 300px;
+            height: 300px;
+            font-size: 30px;
+            text-align: center;
+            /* 文字高度置中，height設多高，line-height就打多少 */
+            line-height: 300px;
+
+        }
+        .item-row {
+            flex-basis: 500px;
+            /* 對於row, ↑ flex-basis == width*/
+            background-color: aqua;
+            margin-left: 10px;
+            color: red;
+        }
+        .item-row-2{
+            flex-basis: 600px;
+        }
+
+        .item-column {
+            flex-basis: 400px;
+            /* 對於column，flex-basis == height */
+            background-color: yellow;
+            margin-bottom: 10px;
+            color: green;
+        }
+        .item-column-12{
+            flex-basis: 600px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>flex row</h3>
+    <div class="container-row">
+        <div class="item item-row">
+            1
+        </div>
+        <div class="item item-row item-row-2">
+            2
+        </div>
+        <div class="item item-row">
+            3
+        </div>
+    </div>
+    <hr>
+    <h3>flex column</h3>
+    <div class="container-column">
+        <div class="item item-column">
+            4
+        </div>
+        <div class="item item-column item-column-12">
+            5
+        </div>
+        <div class="item item-column">
+            6
+        </div>
+    </div>
+</body>
+
+</html>

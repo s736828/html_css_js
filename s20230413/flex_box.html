@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐點作業</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        h2{
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            /* flex-wrap: wrap; */
+            justify-content: space-around;
+        }
+        .container1 {
+            display: flex;
+            flex-direction: column;
+            /* height: 90vh; */
+            /* VH是營幕高，VW是營幕寬 */
+            height: 900px;
+            /* width: 1200px; */
+            /* background-color: lightpink; */
+            /* align-items: center; */
+            flex-wrap: wrap;
+        }
+ 
+
+        .item {
+            width: 250px;
+            height: 250px;
+            background-color: aqua;
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .item2 {
+            width: 500px;
+            height: 250px;
+            background-color: aquamarine;
+            margin: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 180px;
+        }
+        .item-title{
+            background-color: lightsalmon;
+            border: 1px solid black;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item-title">
+            <h2>主餐</h2>
+        </div>
+        <div class="item-title">
+            <h2>飲料</h2>
+        </div>
+        <div class="item-title">
+            <h2>餐點介紹</h2>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="item item-column">
+            <p>主餐</p>
+            <img src="https://picsum.photos/200/200?random=1" alt="">
+        </div>
+
+        <div class="item item-column">
+            <p>主餐</p>
+            <img src="https://picsum.photos/200/200?random=2" alt="">
+        </div>
+
+        <div class="item item-column">
+            <p>主餐</p>
+            <img src="https://picsum.photos/200/200?random=3" alt="">
+        </div>
+
+        <div class="item item-column">
+            <p>飲料</p>
+            <img src="https://picsum.photos/200/200?random=4" alt="">
+        </div>
+
+        <div class="item item-column">
+            <p>飲料</p>
+            <img src="https://picsum.photos/200/200?random=5" alt="">
+        </div>
+
+        <div class="item item-column">
+            <p>飲料</p>
+            <img src="https://picsum.photos/200/200?random=6" alt="">
+        </div>
+
+        <div class="item2 item-column">
+            <p>餐點介紹</p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, temporibus voluptas laboriosam,
+                adipisci, voluptatibus iste similique sequi necessitatibus non quisquam quaerat maiores tenetur
+                provident magni fugiat placeat molestiae illum. Dolorem suscipit dolor nam consectetur assumenda,
+                consequuntur commodi iste? Alias ducimus natus dignissimos voluptatibus accusantium inventore magnam
+                quia quod assumenda vel.
+            </p>
+        </div>
+        <div class="item2 item-column">
+            <p>餐點介紹</p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, temporibus voluptas laboriosam,
+                adipisci, voluptatibus iste similique sequi necessitatibus non quisquam quaerat maiores tenetur
+                provident magni fugiat placeat molestiae illum. Dolorem suscipit dolor nam consectetur assumenda,
+                consequuntur commodi iste? Alias ducimus natus dignissimos voluptatibus accusantium inventore magnam
+                quia quod assumenda vel.
+            </p>
+        </div>
+        <div class="item2 item-column">
+            <p>餐點介紹</p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, temporibus voluptas laboriosam,
+                adipisci, voluptatibus iste similique sequi necessitatibus non quisquam quaerat maiores tenetur
+                provident magni fugiat placeat molestiae illum. Dolorem suscipit dolor nam consectetur assumenda,
+                consequuntur commodi iste? Alias ducimus natus dignissimos voluptatibus accusantium inventore magnam
+                quia quod assumenda vel.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
