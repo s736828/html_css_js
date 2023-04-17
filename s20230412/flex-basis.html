@@ -12,16 +12,11 @@
         }
         .container {
             display: flex;
-            flex-direction: row;
             border: 1px solid black;
-            /* width: 1024px; */
-            /* height: 768px; */
-
             /* vw vh viewpoint */
-            width: 100%;
+            width: 100%; 
             height: 50vh;
-            /* justify-content: center; */
-                        
+            justify-content: center;                        
         }
 
         .item1 {
@@ -31,9 +26,9 @@
 
         .item2 {
             background-color: aquamarine;
-            flex-basis: calc(100% - 700px);
+            /* flex-basis: calc(100% - 700px); */
             /* calc計算 數字 - 數字↑減號與數字要空格分開 */
-            /* flex-basis: 400px; */
+            flex-basis: 400px;
         }
     </style>
 </head>

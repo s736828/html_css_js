@@ -6,63 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>丙級</title>
     <style>
-        .top{
+        *{
+            box-sizing: border-box;
+        }
+        .container{
             display: flex;
+            width: 1000px; 
+            /*寬度鎖定，wrap才有效*/
+            flex-wrap: wrap;
+        }
+        .top{
+            flex-basis: 1000px;      
             background-color: aqua;
-            height: 200px;
+            height: 150px;
+        }
+
+        .aside{
+            width: 300px;
+            /* 鎖定寬度，才可以wrap */
+            height: 1000px;            
+            background-color:aquamarine;
+
+            display: flex;          
+            flex-direction: column;
         }
         .nav{
-            display: flex;
-            background-color:aquamarine;
-            height: 300px;
-        }        
-        .container-row3{
-            display: flex;
-            background-color: bisque;
-        }
-        .container-row4{
-            background-color: coral;
-            height: 200px;
-        }
-        .item{
-            border: 2px solid black;
-        }
-        .item1{
             background-color: darkgoldenrod;
-
+            height:800px;            
         }
-        .item2{
+        .update{
             background-color: darkseagreen;
+            height: calc(100% - 800px);
         }
+
+        .section{
+            background-color: bisque;
+            width: calc(100% - 300px);
+
+            display: flex;
+            flex-direction: column;
+        }
+        .marqee{
+            background-color:cornflowerblue;
+            height:calc(100% - 800px);
+        }
+        .content{
+            background-color: lightpink;
+            height:800px;            
+        }
+        .footer{
+            display: flex;
+            background-color: coral;
+            height: 150px;
+            flex-basis: 1000px;           
+        }   
+        .item{
+            border: 1px solid black;
+        }
+        
         
     </style>
 
 </head>
 <body>
-    <header class="top">
-        top
-    </header>
+    <div class="container">
 
-    <div class="nav">
-        <div class="item item1">
-            nav
-        </div>
-        <div class="item item2">
-            marqee
-        </div>
-    </div>
-
-    <div class="container-row3">
-        <div class="item item3">
-            update
-        </div>
-        <div class="item item4">
-            content
-        </div>
-    </div>
-
-    <div class="container-row4">
-        footer
+        <header class="top">
+            top
+        </header>
+    
+        <aside class="aside">
+            <div class="item nav">
+                nav
+            </div>
+            <div class="item update">
+                update
+            </div>
+        </aside>
+    
+        <section class="section">
+            <div class="item marqee">
+                marqee
+            </div>
+            <div class="item content">
+                content
+            </div>
+        </section>
+    
+        <footer class="footer">
+            footer
+        </footer>
     </div>
 
 
