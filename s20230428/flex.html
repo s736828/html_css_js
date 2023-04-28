@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            float: left;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .col-1 {
+            width: 10%;
+        }
+
+        .col-2 {
+            width: 20%;
+        }
+
+        .col-3 {
+            width: 30%;
+        }
+
+        .col-4 {
+            width: 40%;
+        }
+
+        .col-5 {
+            width: 50%;
+        }
+
+        .col-6 {
+            width: 60%;
+        }
+
+        .col-7 {
+            width: 70%;
+        }
+
+        .col-8 {
+            width: 80%;
+        }
+
+        .col-9 {
+            width: 90%;
+        }
+
+        .col-10 {
+
+            width: 100%;
+        }
+
+        .clear-fix {
+            clear: both;
+        }
+
+        /* row-1 */
+        .box11 {
+            background-color: aquamarine;
+        }
+
+        .box12 {
+            background-color: bisque;
+        }
+
+        /* row-2 */
+        .box21 {
+            background-color: lightpink;
+        }
+
+        .box22 {
+            background-color: darkorange;
+        }
+
+        .box23 {
+            background-color: lightgreen;
+        }
+
+        /* row-3 */
+        .box31 {
+            background-color: darkslateblue;
+        }
+
+        .clear-fix {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 設計概念把每行都當成一個row, 每行都用div包起來 -->
+    <div class="container">
+        <div class="row-1">
+            <div class="box box11 col-7">
+
+            </div>
+            <div class="box box12 col-3">
+
+            </div>
+            <div class="clear-fix"></div>
+        </div>
+        <div class="row-2">
+            <div class="box box21 col-2">
+
+            </div>
+            <div class="box box22 col-5">
+
+            </div>
+            <div class="box box23 col-3">
+
+            </div>
+            <div class="clear-fix"></div>
+        </div>
+        <div class="row-3">
+            <div class="box box31 col-10">
+        </div>
+        <div class="clear-fix"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

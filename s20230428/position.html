@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+
+        /* static靜態定位 */
+        /* (default)預設 */
+        /* 上下左右都失效 */
+        .static {
+            position: static;
+            left: 100px;
+        }
+
+        /* relative相對定位 */
+        .relative {
+            position: relative;
+            left: 100px;
+            top: 50px;
+        }
+
+        /* 固定定位 */
+        .fixed {
+            position: fixed;
+            top: 300px;
+            background-color:darkgrey;
+            width: 100%;
+            height: 20vh;
+        }
+
+        /*  絕對 */
+        /* 與相對一起存在 */
+        .relative-container {
+            position: relative;
+            left: 200px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid lightblue;
+        }
+
+        .absolute-item-1 {
+            position: absolute;
+            /* 0不需要有單位，有數字才要打 */
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightcoral;
+            background-color: red;
+        }
+
+        .absolute-item-2 {
+            position: absolute;
+            /* 0不需要有單位，有數字才要打 */
+            right: 0;
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightcoral;
+            background-color: blue;
+        }
+
+        .absolute-item-3 {
+            position: absolute;
+            /* 0不需要有單位，有數字才要打 */
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightcoral;
+            background-color: chartreuse
+        }
+
+        .absolute-item-4 {
+            position: absolute;
+            /* 0不需要有單位，有數字才要打 */
+            right: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightcoral;
+            background-color: chocolate;
+        }
+
+        /* 黏貼定位，類似廣告或提示框 */
+        /* .sticky {
+            position: sticky;
+            width: 100%;
+            height: 20vh;
+            background-color: burlywood;
+            top: 100px;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <h3>Position - static</h3>
+    <div class="static">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum distinctio expedita alias doloremque voluptas
+        architecto quam reprehenderit odio hic tenetur ea atque adipisci nihil repellendus sequi quidem similique
+        beatae, a maiores, esse, laudantium iure sit aperiam minima. Quas, impedit repellendus necessitatibus odio autem
+        voluptatem dolore. Sunt nostrum laboriosam voluptatem officiis autem, fugiat esse magnam necessitatibus error
+        cupiditate, facilis sequi minima mollitia cum eveniet ea animi hic! Quae voluptatum sint, adipisci hic sequi
+        nihil modi dolores quidem? Sunt minus adipisci nemo dolorum molestiae distinctio ducimus voluptates commodi!
+        Obcaecati aliquam maiores eos voluptate possimus? Dolor autem quis voluptates ut atque nisi perspiciatis
+        repellendus asperiores sed sapiente qui, fugit, nobis soluta? Quos recusandae sed fugiat, possimus repellendus,
+        nesciunt unde voluptate accusamus culpa, rerum autem quia sequi. Molestiae culpa autem dolore earum veritatis,
+        laboriosam voluptatum dicta velit a ipsam eveniet aliquam exercitationem. Quia quod tempora dignissimos culpa
+        dolor voluptates est maiores accusamus suscipit commodi. Quis voluptatibus facere aut in doloribus neque. Vel
+        quidem recusandae quas consequatur cumque, illum voluptatem ipsa, nobis modi atque, unde reiciendis. Optio velit
+        eius modi sunt, laudantium voluptas voluptatum illo tenetur vel quis molestias, cupiditate voluptatibus unde,
+        cum impedit cumque! Nobis, corrupti voluptate quis atque pariatur dolores. Doloremque iste fugiat dolorem id a
+        enim quia ipsa ab qui expedita harum delectus, animi maiores? Voluptate dolorum iusto veniam perspiciatis est
+        quis beatae autem fuga voluptatibus magni ullam dolore mollitia libero ut quidem, distinctio error eos quisquam
+        cupiditate consequuntur eius repellendus placeat exercitationem! Iure consectetur numquam repellat, accusamus
+        dolore ipsum neque quo delectus beatae molestias, doloribus error similique. Iste laudantium officia eum a aut,
+        delectus asperiores ratione laboriosam suscipit dolore enim, sed amet repudiandae maxime officiis ex at? Quos
+        similique tempore incidunt debitis aperiam iste architecto voluptas tenetur corporis amet, voluptates molestiae
+        corrupti velit alias enim modi recusandae, beatae, obcaecati maxime! Magni tempore velit quos eaque omnis eos
+        debitis sapiente, facilis inventore eum, sit aperiam mollitia quisquam nisi provident explicabo, natus
+        praesentium! Nam pariatur in vitae dolore saepe similique culpa excepturi esse optio libero enim asperiores
+        eligendi expedita fuga fugit quae aliquam tempore illo sed, facilis sequi maiores? Natus, dolorem ipsam? Quaerat
+        voluptates inventore ipsum soluta ducimus nulla consequuntur impedit quisquam consequatur, in exercitationem
+        doloremque unde labore ad distinctio laudantium delectus maiores odio eos? Ipsa pariatur asperiores placeat
+        consectetur omnis minus ratione accusamus temporibus dicta qui sint debitis esse earum error ipsam totam
+        tempora, consequatur fugiat! Quae ad ut repellat libero autem nobis iure voluptatem aspernatur, vitae architecto
+        consequatur debitis quia natus, error porro quasi sunt commodi odio eligendi nostrum praesentium sequi. Ea eaque
+        vitae magnam quos esse minus delectus laudantium. Ad vel aliquam dolorem temporibus impedit veritatis molestiae,
+        minima ab molestias voluptates id velit praesentium, aliquid in. Impedit culpa repellat cupiditate distinctio ex
+        vero error dolore alias, quisquam tempora consequatur quam corrupti, reiciendis beatae, labore in possimus
+        cumque fuga? Distinctio esse, cum ab pariatur libero suscipit placeat repellat repudiandae expedita hic minima
+        aspernatur debitis modi temporibus voluptates quas nulla ipsam itaque. Voluptatum iure veritatis doloribus
+        ratione error qui, excepturi autem cum?
+    </div>
+    <hr>
+    <h3>Position - sticky黏性</h3>
+    <div class="sticky">
+        <div class="sticky">
+        </div>
+    </div>
+
+
+    <h3>Position - relative</h3>
+    <div class="relative">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor animi, magni aspernatur exercitationem enim
+        ratione numquam suscipit soluta recusandae laudantium qui repellendus vero nesciunt deleniti omnis debitis harum
+        perspiciatis dolores excepturi! Quisquam ut repudiandae necessitatibus nemo velit laudantium vel, laborum
+        dolorem quos, beatae ullam dignissimos accusamus blanditiis inventore ratione quidem sed autem illo ad nobis
+        consectetur, cumque non debitis. Neque qui corporis error rerum facilis dolores, esse amet nostrum molestias
+        praesentium fuga? Voluptate cupiditate ipsam nihil, in ab impedit amet, quia eligendi minus rem quidem aperiam
+        odit consequatur ad ipsum accusantium at ratione quaerat natus magnam debitis, illo qui eaque quibusdam!
+        Laboriosam nesciunt corrupti rerum dolorem iste blanditiis distinctio, voluptate laudantium soluta nisi vitae
+        incidunt non tempore numquam, nulla similique cupiditate natus optio aliquid sint ipsam illum ipsum. Odio eius
+        ab quia quaerat ullam ut. Reiciendis, amet! Saepe, temporibus vel nisi voluptas, nihil animi est unde delectus
+        provident libero inventore vitae officiis. Quidem at eveniet, sapiente facilis reprehenderit, deserunt totam
+        nemo blanditiis, incidunt nisi optio vero. Consectetur at est quaerat perferendis ullam, minus ea dolores quam
+        nostrum numquam laboriosam velit hic molestias nesciunt, repellendus nobis placeat magni ipsa iure vel sit.
+        Quidem est iusto voluptatum inventore consequatur, possimus veritatis nobis suscipit facilis ex dicta provident
+        perspiciatis voluptatem nulla dolore repellendus, ad commodi facere pariatur! Unde ipsum maxime enim voluptatum
+        tempore ratione impedit aliquam? Deleniti accusantium ducimus fuga, repellat consectetur doloremque, officiis
+        quisquam ex at velit omnis quas tempora ea, recusandae odit excepturi magnam reprehenderit minima! Distinctio
+        accusantium nam doloremque dolor cupiditate a porro, quae voluptates, ipsa provident incidunt fuga animi
+        eligendi architecto ad autem dolore tenetur. Quaerat iusto tempore maiores inventore eveniet accusantium odio
+        maxime repellat, veritatis provident quod accusamus voluptate fuga optio voluptas quibusdam iste obcaecati
+        incidunt perferendis? Corporis maxime autem nemo maiores, facilis sunt dolorum quaerat cupiditate quos a commodi
+        aliquid officiis molestias perferendis quas laudantium culpa? Natus eveniet necessitatibus nulla impedit nisi
+        reprehenderit eius eos consequuntur magnam, ex aliquam aliquid nesciunt adipisci perspiciatis iure, aspernatur
+        enim facere ullam atque ipsam fugiat ratione minima! Iste omnis temporibus at quia, nobis excepturi possimus
+        modi dolores sint reprehenderit iusto ducimus, alias reiciendis consequatur expedita perferendis dignissimos
+        voluptas nesciunt corrupti? Consectetur nesciunt doloribus illum sequi eum debitis minima repellat adipisci non
+        illo, voluptatem sunt voluptatum mollitia molestiae consequuntur facilis ad ea tenetur corrupti unde magnam. Sit
+        quisquam quam, delectus doloremque numquam facere corporis amet commodi cupiditate nisi illum exercitationem
+        saepe mollitia sapiente cum sunt necessitatibus nobis odio minus iusto voluptates nemo. Repellat deserunt
+        temporibus magni consequatur labore commodi magnam, nobis illum libero delectus quia nulla, harum quaerat dicta
+        praesentium, voluptates est illo blanditiis tempore fugit enim asperiores qui ipsam! Deserunt qui quam
+        blanditiis eveniet voluptas, accusantium repudiandae error alias nam cupiditate autem aperiam. Minus, et id!
+        Fugiat sequi, debitis reprehenderit sapiente amet illo! Aperiam neque dolore aliquid quae? Facilis, voluptatum
+        iure earum recusandae dolores ducimus cupiditate quibusdam labore soluta id exercitationem. Consectetur suscipit
+        quaerat veritatis necessitatibus quos commodi sed eos rem impedit soluta cum, repellendus tempora quibusdam
+        dolor quisquam ea obcaecati.
+    </div>
+    <hr>
+
+    <h3>Position - fixed</h3>
+    <div class="fixed">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor animi, magni aspernatur exercitationem enim
+        ratione numquam suscipit soluta recusandae laudantium qui repellendus vero nesciunt deleniti omnis debitis harum
+        perspiciatis dolores excepturi! Quisquam ut repudiandae necessitatibus nemo velit laudantium vel, laborum
+        dolorem quos, beatae ullam dignissimos accusamus blanditiis inventore ratione quidem sed autem illo ad nobis
+        consectetur, cumque non debitis. Neque qui corporis error rerum facilis dolores, esse amet nostrum molestias
+        praesentium fuga? Voluptate cupiditate ipsam nihil, in ab impedit amet, quia eligendi minus rem quidem aperiam
+        odit consequatur ad ipsum accusantium at ratione quaerat natus magnam debitis, illo qui eaque quibusdam!
+        Laboriosam nesciunt corrupti rerum dolorem iste blanditiis distinctio, voluptate laudantium soluta nisi vitae
+        incidunt non tempore numquam, nulla similique cupiditate natus optio aliquid sint ipsam illum ipsum. Odio eius
+        ab quia quaerat ullam ut. Reiciendis, amet! Saepe, temporibus vel nisi voluptas, nihil animi est unde delectus
+        provident libero inventore vitae officiis. Quidem at eveniet, sapiente facilis reprehenderit, deserunt totam
+        nemo blanditiis, incidunt nisi optio vero. Consectetur at est quaerat perferendis ullam, minus ea dolores quam
+        nostrum numquam laboriosam velit hic molestias nesciunt, repellendus nobis placeat magni ipsa iure vel sit.
+        Quidem est iusto voluptatum inventore consequatur, possimus veritatis nobis suscipit facilis ex dicta provident
+        perspiciatis voluptatem nulla dolore repellendus, ad commodi facere pariatur! Unde ipsum maxime enim voluptatum
+        tempore ratione impedit aliquam? Deleniti accusantium ducimus fuga, repellat consectetur doloremque, officiis
+        quisquam ex at velit omnis quas tempora ea, recusandae odit excepturi magnam reprehenderit minima! Distinctio
+        accusantium nam doloremque dolor cupiditate a porro, quae voluptates, ipsa provident incidunt fuga animi
+        eligendi architecto ad autem dolore tenetur. Quaerat iusto tempore maiores inventore eveniet accusantium odio
+        maxime repellat, veritatis provident quod accusamus voluptate fuga optio voluptas quibusdam iste obcaecati
+        incidunt perferendis? Corporis maxime autem nemo maiores, facilis sunt dolorum quaerat cupiditate quos a commodi
+        aliquid officiis molestias perferendis quas laudantium culpa? Natus eveniet necessitatibus nulla impedit nisi
+        reprehenderit eius eos consequuntur magnam, ex aliquam aliquid nesciunt adipisci perspiciatis iure, aspernatur
+        enim facere ullam atque ipsam fugiat ratione minima! Iste omnis temporibus at quia, nobis excepturi possimus
+        modi dolores sint reprehenderit iusto ducimus, alias reiciendis consequatur expedita perferendis dignissimos
+        voluptas nesciunt corrupti? Consectetur nesciunt doloribus illum sequi eum debitis minima repellat adipisci non
+        illo, voluptatem sunt voluptatum mollitia molestiae consequuntur facilis ad ea tenetur corrupti unde magnam. Sit
+        quisquam quam, delectus doloremque numquam facere corporis amet commodi cupiditate nisi illum exercitationem
+        saepe mollitia sapiente cum sunt necessitatibus nobis odio minus iusto voluptates nemo. Repellat deserunt
+        temporibus magni consequatur labore commodi magnam, nobis illum libero delectus quia nulla, harum quaerat dicta
+        praesentium, voluptates est illo blanditiis tempore fugit enim asperiores qui ipsam! Deserunt qui quam
+        blanditiis eveniet voluptas, accusantium repudiandae error alias nam cupiditate autem aperiam. Minus, et id!
+        Fugiat sequi, debitis reprehenderit sapiente amet illo! Aperiam neque dolore aliquid quae? Facilis, voluptatum
+        iure earum recusandae dolores ducimus cupiditate quibusdam labore soluta id exercitationem. Consectetur suscipit
+        quaerat veritatis necessitatibus quos commodi sed eos rem impedit soluta cum, repellendus tempora quibusdam
+        dolor quisquam ea obcaecati.
+    </div>
+    <hr>
+
+    <h3>Position - absolute - 搭配 relative</h3>
+    <div class="relative-container">
+        <div class="absolute-item-1">
+        </div>
+        <div class="absolute-item-2">
+        </div>
+        <div class="absolute-item-3">
+        </div>
+        <div class="absolute-item-4">
+        </div>
+    </div>
+</body>
+
+</html>
