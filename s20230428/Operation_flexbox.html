@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            border-radius: 50px 50px 50px 0px;
+        }
+        
+        .container {
+            text-align: center;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            flex-wrap: wrap;
+            margin: auto;
+            /* border: 1px solid black; */
+        }
+        
+        img {
+            width: 25%;
+        }
+        nav>a {
+            line-height: 70px;
+            margin: 70px;   
+        }
+        .row{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .row-1 {
+            background-color: lightpink;
+            line-height: 200px;
+        }
+
+        .row-2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row-20 {
+            width: 30%;
+            line-height: 300px;
+            background-color: lightseagreen;
+        }
+        .row-3 {
+            background-color: lightslategray;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row row-0">
+            <img src="./img/Logo.png" alt="">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="row row-1">
+            Feature
+        </div>
+
+        <div class="row row-2">
+            <div class="row-20">Column One</div>
+            <div class="row-20">Column Two</div>
+            <div class="row-20">Column Three</div>
+        </div>
+        <div class="row row-3">
+            Copyright2023/04/30
+        </div>
+    </div>
+
+</body>
+
+</html>

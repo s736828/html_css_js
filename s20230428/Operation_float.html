@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            border-radius: 40px 40px 40px 0px;
+            margin-bottom: 10px;
+            /* border: 1px solid black; */
+        }        
+        .container {
+            text-align: center;
+            font-size: xx-large;
+            width: 80%;
+            height: 100vh;
+            margin: auto;
+        }
+        img {
+            width: 25%;
+        }
+        a {
+            line-height: 60px;
+            margin-right: 80px;
+        }
+        .row-1 {
+            background-color: lightpink;
+            line-height: 200px;
+        }
+
+        /* 方式1 */
+        .row {
+            display: inline-block;
+            background-color: lightskyblue;
+            width: 30%;
+            line-height: 300px;
+        }
+        .row-21 {
+            float: left;
+        }
+        .row-23 {
+            float: right;
+        }
+
+        /* 方式2 */
+        /* .flexbox {
+            display: flex;
+            justify-content: space-between;
+            line-height: 300px;
+        }
+        .row-20 {
+            background-color: aquamarine;
+            width: 30%;
+        } */
+
+        .row-3 {
+            background-color: lightsalmon;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <img src="./img/Logo.png" alt="">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="row-1">
+            Feature
+        </div>
+        <!-- 方式1 -->
+        <div class="row row-21">Column One</div>
+        <div class="row row-22">Column Two</div>
+        <div class="row row-23">Column Three</div>
+
+        <!-- 方式2 -->
+        <!-- <div class="flexbox">
+            <div class="row-20">Column One</div>
+            <div class="row-20">Column Two</div>
+            <div class="row-20">Column Three</div>
+        </div> -->
+
+        <div class="row-3">
+            Copyright2023/04/30
+        </div>
+    </div>
+
+</body>
+
+</html>
