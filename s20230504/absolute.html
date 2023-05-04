@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            /* width: 100%; */
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            background-color: lightgoldenrodyellow;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            
+        }
+
+        .box>.top {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .box>.right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .box>.bottom {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .box>.left {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1">
+            <img src="https://picsum.photos/id/237/100/100" alt="" class="top">
+            <img src="https://picsum.photos/id/240/100/100" alt="" class="right">
+            <img src="https://picsum.photos/id/241/100/100" alt="" class="bottom">
+            <img src="https://picsum.photos/id/242/100/100" alt="" class="left">
+        </div>
+        <div class="box box2">
+            <img src="https://picsum.photos/id/239/100/100" alt="">
+
+        </div>
+        <div class="box box3">
+            <img src="https://picsum.photos/id/238/100/100" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>
