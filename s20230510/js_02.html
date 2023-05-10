@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p>
+        <label for="name">name : </label>
+        <input type="text" id="name" value="">
+    </p>
+    <p>
+        <label for="mobile">mobile : </label>
+        <input type="text" id="mobile" value="">
+    </p>
+    <p>
+        <button type="button" id="myBtn" onclick="myFun()">GET-btn</button>
+    </p>
+
+    <hr>
+    <p id="result">
+        aaaaaaaaaa
+    </p>
+
+    <script>
+        // 綁定id
+        let nameText = document.getElementById('name');
+        let mobileText = document.getElementById('mobile');
+        let result = document.getElementById('result');
+        let myBtn = document.getElementById('myBtn');
+
+        // myBtn.addEventListener()
+
+        function stamp(month, date) {
+            console.log(month);
+            console.log(date);
+        }
+        // 呼叫 /實作
+        stamp(5, 10);
+        stamp(12, 31);
+
+        function helloFun() {
+            console.log('hello function');
+        }
+        helloFun();
+
+        function myFun() {
+            let nameTextvalue = nameText.value;
+            let mobileTextValue = mobileText.value;
+            console.log(nameTextvalue);
+            console.log(mobileTextValue);
+
+            result.innerText = `您好!您選的是 ${nameTextvalue} ${mobileTextValue}`;
+            
+            let year =2023;
+            let month =3;
+            window.location.replace(`http://localhost/?year=${year} month=${month}`);
+        }
+
+        function Fun() {
+            let aaa = "a1b2c3";
+            document.getElementById('result').innerText = aaa;
+        }
+        Fun();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            background-color: aquamarine;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    </div>
+
+    <h3 id="myH3">aaaaa</h3>
+
+    <script>
+        document.getElementById('box').style.backgroundColor = 'green';
+
+        // 按F12要到 主控台看印出結果
+        console.log('HELLO Javascript');
+        // JS變數的宣告方式
+        let helloText = 'HELLO JS';
+        console.log(helloText);
+
+        let name = 'jerry吳亮均'
+        console.log(`hello ${name}`)
+
+        console.log('---------------')
+
+        let n1 = 'abc';
+        let mobile = '0911-111-111'
+        let myString = `Hello${name}, mobile=> ${mobile}`;
+        console.log(myString);
+        // innerText更改文字 method 方法
+        document.getElementById('myH3').innerText = myString;
+
+        // 字串+變數
+        let test = 'aaa';
+        let test2 = "bbb";
+
+        let string = "abc test";
+        console.log(string);
+
+        // 字串相加
+        let addString = test + test2;
+
+        // 字內加變數
+        console.log(addString);
+        let sumString=`hello ${test}`;
+
+    </script>
+</body>
+
+</html>

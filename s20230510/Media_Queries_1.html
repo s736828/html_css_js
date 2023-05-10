@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightpink;
+        }
+
+        .container,
+        .container1,
+        .container3 {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+        .box3 {
+            width: 30%;
+            border: 1px solid black;
+        }
+
+        input {
+            width: 300px;
+        }
+
+        /* 手機條件達到max-width:600px，600以下*/
+        @media screen and (max-width:600px) {
+            body {
+                background-color: lightblue;
+            }
+
+            .container {
+                flex-wrap: wrap;
+            }
+
+            .box {
+                width: 60%;
+                background-color: blueviolet;
+                margin-bottom: 10px;
+            }
+
+            .container1 {
+                flex-wrap: wrap;
+            }
+
+            .box1 {
+                /* 控制版面寬度為橫向的有2塊 */
+                width: 40%;
+                height: 100px;
+                background-color: coral;
+                margin-bottom: 10px;
+            }
+
+            .container3 {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .box3 {
+                width: 100%;
+                /* text-align: center; */
+            }
+
+            input {
+                width: 80%;
+                margin-bottom: 20px;
+                height: 100px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .container3 {
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+            }
+
+            .box3 {
+                width: 100%;
+                text-align: center;
+            }
+
+            input {
+                width: 80%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="container1">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+
+    <form action="">
+        <div class="container3">
+            <div class="box3">
+                <label for="">姓名: </label>
+                <input type="text">
+            </div>
+            <div class="box3">
+                <label for="">電話: </label>
+                <input type="text">
+            </div>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

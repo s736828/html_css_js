@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example123;
+            animation-duration: 4s;
+            margin-bottom: 10px;
+            /* 動畫期間↑ */
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example123;
+            animation-duration: 12s;
+            /* 動畫期間↑ */
+        }
+        /* @keyframes example123 {
+            from {
+                background-color: red;
+            }
+            to {
+                background-color: yellow;
+            }
+        } */
+
+        /* 以下在4s及12s的區間，0~70%的時間由紅轉綠，70~100的時間由綠轉藍 */
+        @keyframes example123 {
+            0% {
+                background-color: red;
+            }
+
+            70% {
+                background-color: green;
+            }
+
+            100% {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>搜尋CSS Animation 動畫片</h1>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+
+</body>
+
+</html>
