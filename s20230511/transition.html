@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <p>
+            <label for="aNumb">num1:</label>
+            <input type="number" id="aNumb" required>
+        </p>
+        <p>
+            <label for="bNumb">num2:</label>
+            <input type="number" id="bNumb" required>
+        </p>
+        <p>
+            <button type="button" id="Btn" onclick="Fun()">計算加總</button>
+            <!-- <input type="reset" value="重置"> -->
+            <button type="button" id="re" onclick="res()">reset</button>
+
+            <button type="button" id="add" onclick="add1()"> 加+ </button>
+            <button type="button" id="reduce" onclick="reduce2()"> 減- </button>
+            <button type="button" id="take" onclick="take3()"> 乘* </button>
+            <button type="button" id="division" onclick="division4()"> 除/ </button>
+        </p>
+
+        <div id="text">
+            請輸入2個數字計算加總
+        </div>
+        <div id="sumab">
+            0
+        </div>
+    </form>
+    <script>
+        // search w3cschool js string to number
+        let xNum = 10;
+        let yNum = 200;
+        let zString = '3000';
+        let result = xNum + yNum + zString;
+        let result1 = xNum + yNum + parseInt(zString);
+        console.log(result);
+        console.log(result1);
+
+        // 綁定連結id
+        let sumText = document.getElementById('Btn');
+        let aNumb = document.getElementById('aNumb');
+        let bNumb = document.getElementById('bNumb');
+        let text = document.getElementById('text');
+        let sumab = document.getElementById('sumab');
+        let re = document.getElementById('re');
+
+        let add = document.getElementById('add');
+        let reduce = document.getElementById('reduce');
+        let take = document.getElementById('take');
+        let division = document.getElementById('division');
+        //轉型浮點數parseFloat，轉型整數parseInt
+        let num1Value;
+        let num2Value;
+        
+        function basic() {
+           num1Value = aNumb.value;
+           num2Value = bNumb.value;
+        }
+
+        function Fun() {
+            let a = parseInt(aNumb.value);
+            let b = parseInt(bNumb.value);
+            sum = a + b;
+            console.log(sum);
+            text.style.display = 'none';
+            // ↑#text, 關閉
+            document.getElementById('sumab').innerText = sum;
+            reFun()
+        }
+        function res() {
+            // window.location.reload();
+            // 關閉 init
+            aNumb.value = "";
+            bNumb.value = "";
+            sumab.innerText = "";
+            text.style.display = 'block';
+        }
+
+        function reFun() {
+            basic()
+            if (num1Value.length < 1 || num2Value.length < 1) {
+                alert('請輸入數值');
+                return false; // 跳出整個程式
+            }
+        }      
+        function add1() {
+            basic()
+            let sumNumb = Number(num1Value) + Number(num2Value);
+            document.getElementById('sumab').innerText = sumNumb;
+        }
+        function reduce2() {
+            basic()
+            let sumNumb = Number(num1Value) - Number(num2Value);
+            document.getElementById('sumab').innerText = sumNumb;
+        }
+        function take3() {
+            basic()
+            let sumNumb = Number(num1Value) * Number(num2Value);
+            document.getElementById('sumab').innerText = sumNumb;
+        }
+        function division4() {
+            basic()
+            let sumNumb = Number(num1Value) / Number(num2Value);
+            document.getElementById('sumab').innerText = sumNumb;
+        }
+        // function Fun() {
+        //     let num1Value = aNumb.value
+        //     let num2Value = bNumb.value
+        //     console.log('num1Value', num1Value);
+        //     console.log('num1Value type=>', typeof (num1Value));
+        //     console.log('num2Value', num2Value);
+        //     console.log('num2Value type=>', typeof (num2Value));
+        //     let resultValue = Number(num1Value) + Number(num2Value);
+        //     console.log(resultValue);
+        //     console.log('resultValue type=>',typeof(resultValue));
+        // }
+
+    </script>
+</body>
+
+</html>

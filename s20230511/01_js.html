@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            /* margin:auto; */
+            text-align: center;
+            margin-bottom: 30px;
+            /* background-color: lightblue; */
+        }
+
+        .row {
+            margin-bottom: 30px;
+        }
+
+        #tip {
+            color: red;
+            display: none;
+        }
+
+        #result {
+            font-size: 48px;
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <label for="num1">num1</label>
+            <input type="number" id="num1">
+        </div>
+        <div class="row">
+            <label for="num2">num2</label>
+            <input type="number" id="num2">
+        </div>
+        <div class="row">
+            <label for="opt">opt</label>
+            <input type="text" id="opt">
+
+            <select name="opt2" id="opt2">
+                <option value="+">加</option>
+                <option value="-">減</option>
+                <option value="*">乘</option>
+                <option value="/">除</option>
+            </select>
+        </div>
+        <div class="row">
+            <button type="button" id="myBtn" onclick="resetFun()">Reset</button>
+            <button type="button" id="myBtn" onclick="myBtnFun()">計算加總</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="tip">
+            請輸入2個數字計算加總
+        </div>
+    </div>
+    <div class="container">
+        <div id="result">
+            1000
+        </div>
+    </div>
+
+    <script>
+        //1.get input value
+        // 抓到aNumb的value及bNumb的value
+        // 抓到opt.value
+        // 判斷opt.value + - * /
+
+        // 1.綁定
+        let num1 = document.getElementById('num1');
+        let num2 = document.getElementById('num2');
+        let opt = document.getElementById('opt');
+        let opt2 = document.getElementById('opt2');
+        let tip = document.getElementById('tip');
+        let result = document.getElementById('result');
+        let myBtn = document.getElementById('myBtn');
+
+        function initFun() {
+            tip.style.display = 'none';
+            result.style.display = 'none';
+        }
+        function clearInput() {
+            num1.value = '';
+            num2.value = '';
+        }
+        function resetFun() {
+            console.log('resetFun OK')
+            initFun();
+            tip.style.display = 'block';
+            clearInput();
+        }
+
+        function myBtnFun() {
+            // 1.get input value
+            let num1Value = num1.value;
+            let num2Value = num2.value;
+            let optValue = opt.value
+            let optValue2 = opt2.value
+            // console.log('num1Value', num1Value);
+            // console.log('num2Value', num2Value);
+            // console.log('optValue', optValue)
+            let resultValue = 0;
+            switch (optValue2) {
+                case '+':
+                    resultValue = Number(num1Value) + Number(num2Value);
+                    break;
+                case '-':
+                    resultValue = Number(num1Value) - Number(num2Value);
+                    break;
+                case '*':
+                    resultValue = Number(num1Value) * Number(num2Value);
+                    break;
+                case '/':
+                    resultValue = Number(num1Value) / Number(num2Value);
+                    break
+                default:
+                    alert('opt error');
+                    break;
+            }
+            console.log('resultValue', resultValue);
+
+            result.innerText = resultValue
+            initFun();
+            result.style.display = 'block';
+        }
+
+
+        console.log('num1', num1);
+        console.log('num2', num2);
+        console.log('opt2', opt2);
+        console.log('tip', tip);
+        console.log('myBtn', myBtn);
+
+        //全部關閉
+        initFun();
+        tip.style.display = 'block';
+
+    </script>
+</body>
+
+</html>
