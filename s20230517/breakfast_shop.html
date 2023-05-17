@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        tr,
+        td {
+            border: 2px solid black;
+            text-align: center;
+            width: 200px;
+        }
+
+        th {
+            background-color: aqua;
+            font-size: 3vh;
+        }
+
+        td {
+            font-size: 5vh;
+        }
+
+        td>.price {
+            font-size: 6vh;
+        }
+
+        td>.count {
+            font-size: 5vh;
+            width: 80%;
+        }
+
+        .disspan {
+            color: red;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: aquamarine;
+        }
+
+        .totalsum {
+            font-size: x-large;
+        }
+
+        #box {
+            position: fixed;
+            width: 50%;
+            height: 300px;
+            top: 100px;
+            left: 200px;
+            background-color: bisque;
+            display: none;
+            font-size: x-large;
+            border-radius: 30px;
+        }
+
+        #box>button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #box>div {
+            font-size: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>泰山職訓點餐系統</h2>
+    <table>
+        <tr>
+            <th>品項</th>
+            <th>圖片</th>
+            <th>價格</th>
+            <th>數量</th>
+            <th>小計</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><img src="./image/3.png" alt="" width="100px" height="80px"></td>
+            <td><input class="price" type="button" id="price1" onclick="Subtotal1()" value="100"></td>
+            <td><input class="count" type="number" id="num1"></td>
+            <td id="Subtotal1"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><img src="./image/2.jpg" alt="" width="100px" height="80px"></td>
+            <td><input class="price" type="button" id="price2" onclick="Subtotal2()" value="50"></td>
+            <td><input class="count" type="number" id="num2"></td>
+            <td id="Subtotal2"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><img src="./image/1.png" alt="" width="100px" height="80px"></td>
+            <td><input class="price" type="button" id="price3" onclick="Subtotal3()" value="60"></td>
+            <td><input class="count" type="number" id="num3"></td>
+            <td id="Subtotal3"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><img src="./image/5.png" alt="" width="120px" height="80px"></td>
+            <td><input class="price" type="button" id="price4" onclick="Subtotal4()" value="120"></td>
+            <td><input class="count" type="number" id="num4"></td>
+            <td id="Subtotal4"></td>
+        </tr>
+
+    </table>
+
+    <div class="totalsum">
+        <button type="button" id="Btn_sum" onclick="Funsum()">計算加總</button>
+        <label for="">總計:</label><span id="sumprice">0</span><br>
+
+        <span class="disspan">消費滿300以上打8折</span>
+        <label for="">優惠價:</label><span id="discount">0</span><br>
+
+        <button type="button" id="checkout" onclick="checkout1()">確認結帳</button>
+
+        <button id="reset" onclick="res()">清除</button>
+        <select name="" id="">
+            <option value="">內用</option>
+            <option value="">外帶</option>
+        </select>
+    </div>
+
+    <div id="box">
+        <button id="closeBtn" onclick="closeBtnFun()">X</button>
+        <div>總共金額</div>
+        <span id="resultText"></span>
+    </div>
+
+    <script>
+        let Btn_sum = document.getElementById('Btn_sum');
+        let reset = document.getElementById('reset');
+        let price1 = document.getElementById('price1');
+        let price2 = document.getElementById('price2');
+        let price3 = document.getElementById('price3');
+        let price4 = document.getElementById('price4');
+        let num1 = document.getElementById('num1');
+        let num2 = document.getElementById('num2');
+        let num3 = document.getElementById('num3');
+        let num4 = document.getElementById('num4');
+        let Subto1 = document.getElementById('Subtotal1');
+        let Subto2 = document.getElementById('Subtotal2');
+        let Subto3 = document.getElementById('Subtotal3');
+        let Subto4 = document.getElementById('Subtotal4');
+        let sumprice = document.getElementById('sumprice');
+        let discount = document.getElementById('discount');
+        let checkout = document.getElementById('checkout');
+
+        let box = document.getElementById('box');
+        // let closeBtn = document.getElementById('closeBtn');
+        let resultText = document.getElementById('resultText');
+
+        let result1sum;
+        let result2sum;
+        let result3sum;
+        let result4sum;
+        let totalsum;
+        let resultdiscount;
+        //小計
+        function Subtotal1() {
+            result1sum = Number(num1.value) * Number(price1.value);
+            Subto1.innerText = result1sum;
+        }
+        function Subtotal2() {
+            result2sum = Number(num2.value) * Number(price2.value);
+            Subto2.innerText = result2sum;
+        }
+        function Subtotal3() {
+            result3sum = Number(num3.value) * Number(price3.value);
+            Subto3.innerText = result3sum;
+        }
+        function Subtotal4() {
+            result4sum = Number(num4.value) * Number(price4.value);
+            Subto4.innerText = result4sum;
+        }
+
+        // 加總
+        function Funsum() {
+            result1sum = Number(num1.value) * Number(price1.value);
+            document.getElementById('sumprice').innerText = result1sum;
+            result2sum = Number(num2.value) * Number(price2.value);
+            document.getElementById('sumprice').innerText = result2sum;
+            result3sum = Number(num3.value) * Number(price3.value);
+            document.getElementById('sumprice').innerText = result3sum;
+
+            result4sum = Number(num4.value) * Number(price4.value);
+            document.getElementById('sumprice').innerText = result4sum;
+
+            Subto1.innerText = result1sum;
+            Subto2.innerText = result2sum;
+            Subto3.innerText = result3sum;
+            Subto4.innerText = result4sum;
+
+            totalsum = result1sum + result2sum + result3sum + result4sum;
+            if (totalsum >= 300) {
+                resultdiscount = totalsum * 0.8
+            }
+            document.getElementById('sumprice').innerText = totalsum;
+            document.getElementById('discount').innerText = resultdiscount;
+        }
+
+        function res() {
+            num1.value = "";
+            num2.value = "";
+            num3.value = "";
+            num4.value = "";
+            totalsum = "";
+            resultdiscount = "";
+            Subto1.innerText = 0;
+            Subto2.innerText = 0;
+            Subto3.innerText = 0;
+            Subto4.innerText = 0;
+            sumprice.innerText = 0;
+            resultdiscount.innerText = 0;
+            discount.innerText = 0;
+        }
+        //結帳彈跳視窗
+
+
+        function checkout1() {
+            box.style.display = 'block';
+            let tostring = `${price1.value} * ${num1.value} = ${result1sum}
+                          ${price2.value} * ${num2.value} = ${result2sum}
+                          ${price3.value} * ${num3.value} = ${result3sum}
+                          ${price4.value} * ${num4.value} = ${result4sum}
+                          原價 => ${totalsum}
+                          優惠價 => ${resultdiscount}`
+            resultText.innerText = tostring;
+        }
+        function closeBtnFun() {
+            box.style.display = 'none';
+        }
+
+
+    </script>
+</body>
+
+</html>
