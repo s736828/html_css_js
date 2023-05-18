@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <label for="">姓名</label>
+        <input type="text" id="name">
+    </p>
+    <p>
+        <label for="">電話</label>
+        <input type="text" id="mobile">
+
+    </p>
+
+    <script>
+        const name = document.getElementById('name');
+        const mobile = document.getElementById('mobile');
+
+        //querySelectorAll('input')，是指抓所有<input>
+        const inputAll = document.querySelectorAll('input');
+
+        inputAll.forEach(element => {
+            element.addEventListener('focus', function () {
+                console.log('focus ok');
+                console.log(this);
+                this.style.backgroundColor = "pink";
+            })
+            element.addEventListener('focusout', function () {
+                console.log('focusout OK');
+                console.log(this);
+                this.style.backgroundColor = "";
+            })
+        });
+
+        //id
+        // name.addEventListener('focus', function () {
+        //     console.log('focus ok');
+        //     console.log(this);
+        //     this.style.backgroundColor = "pink";
+        // })
+        // name.addEventListener('focusout', function () {
+        //     console.log('focusout OK');
+        //     console.log(this);
+        //     this.style.backgroundColor = "";
+        // })
+    </script>
+</body>
+
+</html>

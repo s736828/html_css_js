@@ -33,14 +33,8 @@
             font-size: 5vh;
         }
 
-        .price {
+        td>.price {
             font-size: 6vh;
-        }
-
-        .price::before,
-        .sumprice::before,
-        .discount::before {
-            content: "$ ";
         }
 
         td>.count {
@@ -99,46 +93,40 @@
         <tr>
             <td>1</td>
             <td><img src="./image/3.png" alt="" width="100px" height="80px"></td>
-            <td class="price">
-                100<input type="hidden" id="price1" onclick="Subtotal1()" value="100">
-            </td>
-            <td><input class="count" type="number" id="num1" min="0" onchange="changeSubtotal()"></td>
+            <td><input class="price" type="button" id="price1" onclick="Subtotal1()" value="100"></td>
+            <td><input class="count" type="number" id="num1"></td>
             <td id="Subtotal1"></td>
         </tr>
         <tr>
             <td>2</td>
             <td><img src="./image/2.jpg" alt="" width="100px" height="80px"></td>
-            <td class="price">
-                50<input type="hidden" id="price2" onclick="Subtotal2()" value="50">
-            </td>
-            <td><input class="count" type="number" id="num2" min="0" onchange="changeSubtotal()"></td>
+            <td><input class="price" type="button" id="price2" onclick="Subtotal2()" value="50"></td>
+            <td><input class="count" type="number" id="num2"></td>
             <td id="Subtotal2"></td>
         </tr>
         <tr>
             <td>3</td>
             <td><img src="./image/1.png" alt="" width="100px" height="80px"></td>
-            <td class="price">
-                70<input type="hidden" id="price3" onclick="Subtotal3()" value="60">
-            </td>
-            <td><input class="count" type="number" id="num3" min="0" onchange="changeSubtotal()"></td>
+            <td><input class="price" type="button" id="price3" onclick="Subtotal3()" value="60"></td>
+            <td><input class="count" type="number" id="num3"></td>
             <td id="Subtotal3"></td>
         </tr>
         <tr>
             <td>4</td>
             <td><img src="./image/5.png" alt="" width="120px" height="80px"></td>
-            <td class="price">
-                120<input type="hidden" id="price4" onclick="Subtotal4()" value="120">
-            </td>
-            <td><input class="count" type="number" id="num4" min="0" onchange="changeSubtotal()"></td>
+            <td><input class="price" type="button" id="price4" onclick="Subtotal4()" value="120"></td>
+            <td><input class="count" type="number" id="num4"></td>
             <td id="Subtotal4"></td>
         </tr>
+
     </table>
 
     <div class="totalsum">
-        <label for="">總計:</label><span class="sumprice" id="sumprice">0</span><br>
+        <button type="button" id="Btn_sum" onclick="Funsum()">計算加總</button>
+        <label for="">總計:</label><span id="sumprice">0</span><br>
 
         <span class="disspan">消費滿300以上打8折</span>
-        <label for="">優惠價:</label><span class="discount" id="discount">0</span><br>
+        <label for="">優惠價:</label><span id="discount">0</span><br>
 
         <button type="button" id="checkout" onclick="checkout1()">確認結帳</button>
         <button id="reset" onclick="res()">清除</button>
@@ -156,27 +144,28 @@
     </div>
 
     <script>
-        const reset = document.getElementById('reset');
-        const price1 = document.getElementById('price1');//價格1
-        const price2 = document.getElementById('price2');//價格2
-        const price3 = document.getElementById('price3');//價格3
-        const price4 = document.getElementById('price4');//價格4
-        const num1 = document.getElementById('num1');//數量1
-        const num2 = document.getElementById('num2');//數量2
-        const num3 = document.getElementById('num3');//數量3
-        const num4 = document.getElementById('num4');//數量4
-        const Subto1 = document.getElementById('Subtotal1');//小計1
-        const Subto2 = document.getElementById('Subtotal2');//小計2
-        const Subto3 = document.getElementById('Subtotal3');//小計3
-        const Subto4 = document.getElementById('Subtotal4');//小計4
-        const sumprice = document.getElementById('sumprice');//總計
-        const discount = document.getElementById('discount');//優惠價
-        const checkout = document.getElementById('checkout');//btn確認結帳
-        const box = document.getElementById('box');//彈跳視窗
-        const resultText = document.getElementById('resultText');//彈跳視窗文字
-        const mySelect = document.getElementById('mySelect');//外送內用
-        const body = document.getElementById('body');//取body-id
+        let Btn_sum = document.getElementById('Btn_sum');//計算加總
+        let reset = document.getElementById('reset');
+        let price1 = document.getElementById('price1');//價格1
+        let price2 = document.getElementById('price2');//價格2
+        let price3 = document.getElementById('price3');//價格3
+        let price4 = document.getElementById('price4');//價格4
+        let num1 = document.getElementById('num1');//數量1
+        let num2 = document.getElementById('num2');//數量2
+        let num3 = document.getElementById('num3');//數量3
+        let num4 = document.getElementById('num4');//數量4
+        let Subto1 = document.getElementById('Subtotal1');//小計1
+        let Subto2 = document.getElementById('Subtotal2');//小計2
+        let Subto3 = document.getElementById('Subtotal3');//小計3
+        let Subto4 = document.getElementById('Subtotal4');//小計4
+        let sumprice = document.getElementById('sumprice');//總計
+        let discount = document.getElementById('discount');//優惠價
+        let checkout = document.getElementById('checkout');//btn確認結帳
+        let box = document.getElementById('box');//彈跳視窗
         // let closeBtn = document.getElementById('closeBtn');
+        let resultText = document.getElementById('resultText');//彈跳視窗文字
+        let mySelect = document.getElementById('mySelect');//外送內用
+        let body = document.getElementById('body');//取body-id
 
         let result1sum;
         let result2sum;
@@ -184,7 +173,7 @@
         let result4sum;
         let totalsum;
         let resultdiscount;
-        //內用/外帶，變背景色
+
         function mySelectFun() {
             console.log('mySelectFun');
             select = mySelect.value;
@@ -194,43 +183,50 @@
             } else {
                 body.style.backgroundColor = 'lightpink';
             }
+
+        }
+        //小計
+        function Subtotal1() {
+            result1sum = Number(num1.value) * Number(price1.value);
+            Subto1.innerText = result1sum;
+        }
+        function Subtotal2() {
+            result2sum = Number(num2.value) * Number(price2.value);
+            Subto2.innerText = result2sum;
+        }
+        function Subtotal3() {
+            result3sum = Number(num3.value) * Number(price3.value);
+            Subto3.innerText = result3sum;
+        }
+        function Subtotal4() {
+            result4sum = Number(num4.value) * Number(price4.value);
+            Subto4.innerText = result4sum;
         }
 
-        //即時變動小計及總計
-        function changeSubtotal() {
-            num1.value = Math.round(num1.value);
-            let number1 = Number(num1.value);
-            let Price1 = Number(price1.value);
-            console.log(number1);
-            console.log(price1);
-            result1sum = number1 * Price1;
-            console.log(result1sum);
+        // 加總
+        function Funsum() {
+            resultdiscount = "0";
+            result1sum = Number(num1.value) * Number(price1.value);
+            document.getElementById('sumprice').innerText = result1sum;
+            result2sum = Number(num2.value) * Number(price2.value);
+            document.getElementById('sumprice').innerText = result2sum;
+            result3sum = Number(num3.value) * Number(price3.value);
+            document.getElementById('sumprice').innerText = result3sum;
+
+            result4sum = Number(num4.value) * Number(price4.value);
+            document.getElementById('sumprice').innerText = result4sum;
+
             Subto1.innerText = result1sum;
-            // Subto1.value = result1sum; 若是td內放input就可用.value值，只有td是innerText
-
-            let number2 = Number(num2.value);
-            let Price2 = Number(price2.value);
-            result2sum = number2 * Price2;
             Subto2.innerText = result2sum;
-
-            let number3 = Number(num3.value);
-            let Price3 = Number(price3.value);
-            result3sum = number3 * Price3;
             Subto3.innerText = result3sum;
-
-            let number4 = Number(num4.value);
-            let Price4 = Number(price4.value);
-            result4sum = number4 * Price4;
             Subto4.innerText = result4sum;
 
             totalsum = result1sum + result2sum + result3sum + result4sum;
-            sumprice.innerText = totalsum;
-
             if (totalsum >= 300) {
                 resultdiscount = totalsum * 0.8
             }
-            discount.innerText = resultdiscount;
-
+            document.getElementById('sumprice').innerText = totalsum;
+            document.getElementById('discount').innerText = resultdiscount;
         }
 
         function res() {
@@ -249,7 +245,6 @@
             discount.innerText = 0;
         }
         //結帳彈跳視窗
-
         function checkout1() {
             box.style.display = 'block';
             let tostring = `${price1.value} * ${num1.value} = ${result1sum}
@@ -264,21 +259,6 @@
             box.style.display = 'none';
         }
 
-    //防止count變負數 <input 給min="0">就不用寫判斷式了
-        // function changeCount() {
-        //     if (num1.value < 0) {
-        //         num1.value = 0;
-        //     }
-        //     if (num2.value < 0) {
-        //         num2.value = 0;
-        //     }
-        //     if (num3.value < 0) {
-        //         num3.value = 0;
-        //     }
-        //     if (num4.value < 0) {
-        //         num4.value = 0;
-        //     }
-        // }
     </script>
 </body>
 

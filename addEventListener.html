@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: blanchedalmond;
+            width: 300px;
+            height: 300px;
+        }
+
+        .lightblue {
+            background-color: lightblue;
+        }
+
+        .lightpink {
+            background-color: lightpink;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myBtn">myBtn</button>
+    <div class="box" data-color="lightpink">
+
+    </div>
+    <script>
+        //綁定
+        const myBtn = document.getElementById('myBtn');
+        const box = document.querySelector('.box');
+
+        function myFun(){
+            console.log('click OK');
+            let getColor = box.getAttribute('data-color');
+            switch (getColor) {
+                case 'lightblue':
+                    box.setAttribute('class', 'box lightpink')
+                    box.setAttribute('data-color', 'lightpink')
+                    break;
+                case 'lightpink':
+                    box.setAttribute('class', 'box lightblue')
+                    box.setAttribute('data-color', 'lightblue')
+                    break;
+                default:
+                    break;
+            }
+        }
+        function myFun2(){
+            console.log('hello myFun2');
+        }
+
+        //stamp('month','day')
+        myBtn.addEventListener('click',myFun);
+        myBtn.addEventListener('click',myFun2);
+        box.addEventListener('mouseover',function(){
+            box.setAttribute('class','box red')
+        });
+        box.addEventListener('mouseout',function(){
+            box.setAttribute('class','box green')
+        });
+
+    </script>
+</body>
+
+</html>
