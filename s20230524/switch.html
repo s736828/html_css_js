@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // level 1 獎品1+獎品2+獎品3都拿到
+        // level的值case的進入點，break;為斷開點
+        let level = 7;
+        switch (level) {
+            case 1:
+                console.log('case1');
+            // break;
+            case 2:
+                console.log('case2');
+            // break;
+            case 3:
+                console.log('case3');
+                break;
+            case 4:
+            case 5:
+            case 6:
+                console.log('普獎');
+                break;
+            default:
+                break;
+        }
+        // document.write測試使用
+        // 盡量還是用console.log
+        // for (let i = 1; i <= 9; i++) {
+        //     for (let j = 1; j <= 9; j++) {
+        //         document.write(`${i}*${j}=${i*j} &nbsp;&nbsp;&nbsp;`);
+        //     }
+        //     document.write(`<br>`);
+        // }
+
+        // padStart(位數,'補0')的方法
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                // let iText=i.toString().padStart(3,'x');
+                // let iText=i.toString().padStart(2,'0');
+                // let jText=j.toString().padStart(2,'0');
+                let ijText=(i*j).toString().padStart(2,'0');
+                document.write(`${i}*${j}=${ijText} &nbsp;&nbsp;&nbsp;`);
+            }
+            document.write(`<br>`);
+        }
+
+
+    </script>
+</body>
+
+</html>

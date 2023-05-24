@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My title</title>
+</head>
+
+<body>
+    <h1 id="myH1">innerText內文</h1>
+    <button onclick="openWindow()">openWindow</button>
+    <script>
+        function openWindow() {
+            window.open();
+            // window.close();
+        }
+        const myH1 = document.getElementById('myH1');
+        console.log('myH1', myH1, '1234');
+
+        let myH1Text = myH1.innerText;
+        console.log(myH1Text);
+
+        console.log('window', window);
+        // innerWidth內寬，innerHeight內高
+        let myWidth = window.innerWidth;
+        let myHeight = window.innerHeight;
+        console.log('myWidth', myWidth);
+        console.log('myHeight', myHeight);
+
+    </script>
+</body>
+
+</html>

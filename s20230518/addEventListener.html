@@ -34,16 +34,19 @@
     <div class="box" data-color="lightpink">
 
     </div>
-    <script>
-        //綁定
+    <script>        
+        //getElementById通過 Id 獲取元素
         const myBtn = document.getElementById('myBtn');
+        // querySelector查詢選擇器
         const box = document.querySelector('.box');
 
         function myFun(){
             console.log('click OK');
             let getColor = box.getAttribute('data-color');
             switch (getColor) {
+                //switch交換器
                 case 'lightblue':
+                    // setAttribute 設置屬性
                     box.setAttribute('class', 'box lightpink')
                     box.setAttribute('data-color', 'lightpink')
                     break;
@@ -60,6 +63,7 @@
         }
 
         //stamp('month','day')
+        // addEventListener加入事件處理器
         myBtn.addEventListener('click',myFun);
         myBtn.addEventListener('click',myFun2);
         box.addEventListener('mouseover',function(){

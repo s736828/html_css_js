@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...in</title>
+</head>
+
+<body>
+    <h2>for...in Loop</h2>
+    <p id="demo">1234</p>
+    <p id="de">1234</p>
+
+    <script>
+        let myArr = ['amy', 'bob', 'cat'];
+        // for in
+        // for(自訂變數 key in Array)
+        for (let abc in myArr) {
+            console.log(abc);
+            console.log(myArr[abc]);
+        }
+
+        const person = { fname: "John", lname: "Doe", age: 25 };
+        let text = "";
+
+        for (let x in person) {
+            text += person[x] + " ";
+        }
+        document.getElementById("demo").innerHTML = text;
+
+
+        let text1 = "";
+        for (let x in location) {
+            text1 += x + "<br>";
+        }
+        document.getElementById("de").innerHTML = text1;
+
+    </script>
+</body>
+
+</html>

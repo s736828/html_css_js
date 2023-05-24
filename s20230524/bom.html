@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h3>The window.location object</h3>
+    <button id="myBtn">winLocation</button>
+    <button id="myCount">myCount</button>
+
+    <script>
+        const myBtn = document.getElementById("myBtn");
+        const Myabc = document.getElementById("Myabc");
+
+        // myBtn.addEventListener('click', function () {
+        //     myBtn.innerText = window.location.href;
+        //     console.log(window.location.hostname);
+        // });
+    
+        function myLocation() {
+            myBtn.innerText = window.location.href;
+            console.log(window.location.hostname);
+        }
+        myBtn.addEventListener('click', myLocation);
+        // ↓有加()為呼叫執行方法, 沒加()為做動click後才觸發方法
+        // myBtn.addEventListener('click', myLocation());
+        // myLocation();
+
+        const myCount = document.getElementById('myCount');
+        let i = 0;
+        myCount.addEventListener('click', function () {
+            i++;
+            console.log(`按${i}次`);
+        });
+    </script>
+</body>
+
+</html>

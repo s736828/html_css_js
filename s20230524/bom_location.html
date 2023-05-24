@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myReplace">replace代替</button>
+    <button id="myassign">assign分配</button>
+    <button id="winOpen">window.open()</button>
+    <h3>replace無法回上一頁，assign可以回上一頁</h3>
+    <h3>window.open('網址')開分頁</h3>
+    <script>
+        const replace=document.getElementById('myReplace');
+        const myassign=document.getElementById('myassign');
+        const winOpen=document.getElementById('winOpen');
+
+        replace.addEventListener('click',function(){
+            console.log('OK');
+            window.location.replace('https://www.w3schools.com/html');
+        });
+        myassign.addEventListener('click',function(){
+            window.location.assign('https://www.w3schools.com/html');
+        });
+        winOpen.addEventListener('click',function(){
+            window.open('https://www.w3schools.com/html');
+        });
+    </script>
+</body>
+</html>

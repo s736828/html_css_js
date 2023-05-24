@@ -16,14 +16,13 @@
     <p>
         <label for="">電話</label>
         <input type="text" id="mobile">
-
     </p>
 
     <script>
         const name = document.getElementById('name');
         const mobile = document.getElementById('mobile');
 
-        //querySelectorAll('input')，是指抓所有<input>
+        //querySelectorAll('input')，查詢選擇器全部
         const inputAll = document.querySelectorAll('input');
 
         inputAll.forEach(element => {
@@ -34,7 +33,6 @@
             })
             element.addEventListener('focusout', function () {
                 console.log('focusout OK');
-                console.log(this);
                 this.style.backgroundColor = "";
             })
         });
