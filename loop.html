@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //break 迴圈中斷
+        document.write(`for__break<br>`);
+        for (let i = 1; i <= 10; i++) {
+            if (i == 5) {
+                break;
+            }
+            document.write(`${i}<br>`);
+        }
+        //continue回到迴圈一開始，再繼續執行迴圈
+        document.write(`for__continue<br>`);
+        for (let i = 1; i <= 10; i++) {
+            if (i == 5) {
+                document.write(`${i}<br>`);
+                continue;
+            }
+            if (i == 8) {
+                document.write(`${i}<br>`);
+                continue;
+            }
+            document.write(`for loop i=${i}<br>`);
+        }
+
+        document.write(`while<br>`);
+        let j = 0;
+        while (j < 10) {
+            j++;
+            document.write(`${j}<br>`);
+        }
+        // do while 至少做一次
+        document.write(`do while<br>`);
+        let k = 1;
+        do {
+            document.write(`${k}<br>`);
+            k++;
+        } while (k >= 10);
+
+    </script>
+</body>
+
+</html>

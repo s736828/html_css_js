@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // continue 跳掉
+        // 每個都做
+        // 條件碰到 不做
+        // 我每個人都發6000
+        // 排富 資產超過一億 不要發
+        // if( money > 一億)
+        // continue
+        // 發6000()
+        // for (let index = 0; index < array.length; index++) {
+        //     if(money > 100000000){
+        //         continue;
+        //     }
+        //     get6000();
+        // }
+
+        // 練習一 假設員工訂單，總共營業額是多少?
+        // 練習二 >=100 總共營業額是多少?
+        // 練習三 <100 總共營業額是多少?
+        // 練習四 第一筆300 index 多少...break
+        // 練習五 若只要取第二筆300 index 多少...break
+        let myArr = [50, 100, 300, 20, 300, 55, 100, 300, 33]
+        let sum = 0;
+        let sum1 = 0;
+        let sum2 = 0;
+        let KeyValue = 0;
+        let getIndexArr = [];
+        let isStartFlag = true; 
+        myArr.forEach(function (value, key) {
+            // console.log(key);
+            // console.log(value);
+            // console.log(myArr[8] + myArr[7]);
+            // sum = myArr[0] + myArr[1] + myArr[2] + myArr[3] + myArr[4] + myArr[5] + myArr[6] + myArr[7] + myArr[8];
+            sum = sum + value;
+
+            if (value >= 100) {
+                sum1 = sum1 + value;
+            }
+            if (value < 100) {
+                sum2 = sum2 + value;
+            }
+            // 以下3種方式
+            // if (value == 300 && KeyValue == 0) {
+            //     KeyValue = key;
+            // }
+            // if (value == 300 && isStartFlag == true) {
+            //     KeyValue = key;
+            //     isStartFlag = false;
+            //     console.log(KeyValue);
+            // }
+            if (value == 300) {
+                getIndexArr.push(key);
+                // console.log(getIndexArr);
+            }
+        });
+
+        console.log('總共營業額是', sum);
+        console.log('>=100 總共營業額是', sum1);
+        console.log('<100 總共營業額是', sum2);
+        // console.log(KeyValue);
+        console.log(getIndexArr);
+        console.log(getIndexArr[1]);
+
+        // 練習一
+        let sumFor = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            sumFor = sumFor + myArr[i];
+        }
+        document.write(`sumFor總營業額=>${sumFor}<br>`);
+        // 練習二
+        let sum100 = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            // console.log(myArr[i]);
+            if (myArr[i] >= 100) {
+                sum100 = sum100 + myArr[i];
+            }
+        }
+        document.write(`(訂單>=100)的總共營業額是:${sum100}<br>`);
+        // 練習三
+        let sumsum = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] < 100) {
+                sumsum = sumsum + myArr[i];
+            }
+        }
+        document.write(`(訂單<100)的總共營業額是:${sumsum}<br>`)
+
+        // 練習四
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] == 300) {
+                document.write(`first value=300 key=>${i}`);
+                break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

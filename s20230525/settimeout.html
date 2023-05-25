@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+
+<body>
+    <h3>setTimeout 3秒鐘</h3>
+    <button id="myBtn">myBtn</button>
+    <button id="startBtn">startBtn</button>
+    <button id="stopBtn">clearInterval</button>
+    <p id="result">setTimeout(function,時間)</p>
+    <script>
+        const myBtn = document.getElementById('myBtn');
+        const result = document.getElementById('result');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        // setInterval設置間隔, (1秒1000)
+        // clearInterval 連續中斷，清除間隔
+        //練習..倒數10->0
+        let time = 10;
+        let myTimer = setInterval(function () {
+            console.log('setInterval設置間隔');
+            time--;
+            result.innerText = time;
+            if (time == 0) {
+                clearInterval(myTimer);
+            }
+        }, 1000)
+
+        function myFun() {
+            result.innerText = 'setTimeout設置超時暫停 OK ';
+        }
+        myBtn.addEventListener('click', function () {
+            // setTimeout(function () {
+            //     alert('Hello setTimeout');
+            //     myFun();
+            // }, 3000)
+
+            setTimeout(myFun, 3000)
+            let myTimer = setInterval(function () {
+                console.log('setInterval設置間隔');
+                time = time + 1;
+                result.innerText = time;
+                if (time >= 15) {
+                    clearInterval(myTimer);
+                }
+            }, 1000);
+        })
+
+        // 練習0,1,2,3,4....15 click停止        
+        let myInterVal;
+        let isStartFlag = true;
+        // function裡面只要有寫回傳return ... 就會跳開不執行下面的程式
+        //return 表達式會終止函式執行，並指明函式呼叫器（function caller）要回傳的數值。
+        // 設if條件,避免click時重覆疊加執行的start()
+        function start() {
+            if (isStartFlag == false) {
+                return;
+            }
+            myInterVal = setInterval(function () {
+                time++;
+                result.innerText = time;
+            }, 1000);
+
+            isStartFlag = false;
+        }
+        
+        startBtn.addEventListener('click',function(){
+            console.log('startOK');
+            start();
+        })
+
+        stopBtn.addEventListener('click', function () {
+            console.log('stopOk');
+            clearInterval(myInterVal);
+            isStartFlag = true;
+        });
+
+    </script>
+</body>
+
+</html>

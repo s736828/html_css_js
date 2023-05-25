@@ -15,7 +15,7 @@
             margin-left: 20px;
             width: 300px;
             height: 300px;
-            background-color: aqua;
+            background-color: blue;
         }
     </style>
 </head>
@@ -34,13 +34,25 @@
         // console.log(box[0]);
         // console.log(box[1]);
         // console.log(box[2]);
+
         box.forEach(function (value, key) {
-            console.log('key:', key);
-            console.log('value:', value);
-            value.style.backgroundColor = 'red';
+            // console.log('key:', key);
+            // console.log('value:', value);
             // 點擊div
             value.addEventListener('click', function () {
+                let textStyle = value.getAttribute("style");
+                let textClass = value.getAttribute("class");
+                console.log('before', value);
+                console.log(textClass);
+                console.log(textStyle);
                 console.log(`hello key${key}`);
+
+                value.style.backgroundColor = 'red';
+                textClass = value.getAttribute("class");
+                textStyle = value.getAttribute("style");
+                console.log('after', value);
+                console.log(textClass);
+                console.log(textStyle);
             });
         });
     </script>
