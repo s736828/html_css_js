@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>TR elements define table rows</h2>
+    <table style="width:100%" id="myTable">
+
+    </table>
+
+    <script>
+        // 綁定
+        const myTable = document.getElementById('myTable');
+        // php
+        // object
+        let myObj = {
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat',
+            's4': 'jerry',
+            's5': 'mark'
+        }
+
+        let myString = `
+        <tr>
+            <th>座號</th>
+            <th>姓名</th>
+        </tr>        
+        `;
+        // object 不能用 array.foreach
+        // 用for in 抓object key / for of 抓object value   
+        for (const key in myObj) {
+            // console.log(`${key} => ${myObj[key]}`);
+            // console.log(key);
+            // console.log(myObj[key]);
+            myString += `
+            <tr>
+                <td>${key}</td>
+                <td>${myObj[key]}</td>
+            </tr>
+            `
+        }
+        myTable.innerHTML = myString;
+
+
+        let myArr = [
+            {
+                'name': 'dog',
+                'mobile': '0911-111-111'
+            },
+            {
+                'name': 'cat',
+                'mobile': '0922-222-222'
+            },
+            {
+                'name': 'mark',
+                'mobile': '0933-333-333'
+            }
+        ]
+
+
+        // console.log(myArr);
+        // console.log(myArr[2]);
+        let abc = [];
+        let def = [];
+        myArr.forEach(value => {
+            // console.log(value);
+            // console.log(value.name);
+            // console.log(value.mobile);
+            abc.push(value.name);
+            def.push(value.mobile);
+            // push()把陣列資料裝在陣列變數裡
+
+        });
+        console.log(abc[1]);
+        console.log(def[1]);
+        console.log(typeof (myArr));
+        console.log(typeof (myObj));
+        console.log(Array.isArray(myArr));
+        console.log(Array.isArray(myObj));
+        console.log(Array.isArray(myObj));
+        
+
+        // console.log(myObj);
+        // console.log('myObj["s1"]', myObj['s1']);
+        // console.log('myObj.s1', myObj.s1);
+
+        // myTable.innerHTML = `
+        // <tr>
+        //     <th>座號</th>
+        //     <th>姓名</th>
+        // </tr>
+        // <tr>
+        //     <td id="td11">data1</td>
+        //     <td id="td12">data2</td>
+        // </tr>
+        // <tr>
+        //     <td id="td21">data2</td>
+        //     <td id="td22">data3</td>
+        // </tr>
+        // <tr>
+        //     <td id="td31">data4</td>
+        //     <td id="td32">data5</td>
+        // </tr>
+        // `;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ageArr = [10, 20, 17, 8, 34, 26]
+        let newArr = [];
+        // filter()篩選，取條件達成的value
+        let filterArr = ageArr.filter(function (value, key) {
+            return value >= 18;
+        })
+        console.log(filterArr);
+
+        let arr = ['Jack', 'John', 'May', 'Su', 'Ada'];
+        arr.forEach(function (value) {
+            if (value == 'John') {
+                console.log(value);
+            }
+        })
+        // indexOf()取索引
+        console.log(arr.indexOf('Su'));
+
+        let arr2 = arr.filter(function (value) {
+            return value.length > 3;
+            // 文字長度>3
+        });
+        console.log(arr2);
+
+        let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let getSum = numArr.reduce(function (total, Value, Index, arr) {
+            // return Value;
+            // return total+Value;
+            // return total;
+            total += value;
+            return total;
+        }, 500)
+        console.log(getSum);
+
+        // arr.reduce(function(accumulator,currentValue,currentIndex,array) {
+        // },initialValue);
+        // 每個元素都會呼叫回調函式（callback），可傳入四個參數：
+        // accumulator：累加器
+        // currentValue：當前元素
+        // currentIndex：當前元素的索引（選擇性）
+        // array: 呼叫 reduce() 方法的陣列（選擇性）
+        // initialValue：第一次呼叫時要傳入的累加器初始值。（選擇性）
+        // 若沒有提供初始值，則原陣列的第一個元素將會被當作初始的累加器。
+    </script>
+</body>
+
+</html>

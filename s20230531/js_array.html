@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let sum = 0;
+        let newArr = [];
+        myArr.push(100, 200)
+        myArr.forEach(function (value, key) {
+            // console.log(`${key}=>${value}`);
+            // console.log(`${value}`);
+            // console.log(newsum);
+            sum += value;
+            if (value > 6) {
+                newArr.push(value * 2);
+            } else {
+                newArr.push(value * 3);
+            }
+        });
+        // console.log(sum);
+        // console.log(myArr);
+        // console.log(newArr);
+        let mapArr = myArr.map(function (value, key) {
+            return value * 2;
+        })
+        // console.log(mapArr);
+
+        // 如果底薪<=4萬，獎金為底薪*2
+        // 如果底薪>4萬，獎金給1萬
+        let myCompany = [6, 4, 2, 1, 5, 10, 7, 3, 6];
+        let bonus = myCompany.map(function (value, key) {
+            if (value <= 4) {
+                return value * 2 + value
+            } else {
+                return value = value + 1
+            }
+        })
+        // console.log(bonus);
+
+
+        const animals = ['pigs', 'goats', 'sheep', 'cat', 'dog'];
+        const count1 = animals.push('cows','abc');
+        console.log(`數量=>${count1}`);
+        console.log(animals);
+        animals.forEach(function (value, key) {
+            // console.log(value);
+        });
+
+
+    </script>
+</body>
+
+</html>
