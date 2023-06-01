@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myBtn">object內的function</button><br>
+    
+    <script>
+        const myBtn = document.getElementById('myBtn');
+ 
+        let myArr = ['amy', 'bob', 'cat'];
+        // console.log(myArr[2]);
+        let i = 1;
+        // console.log(myArr[i]);
+
+        let myObj = {
+            'name': 'jerry',
+            'mobile': '0922-159-753',
+            'hello': function () {
+                console.log('hello');
+            },
+            'sayAll': function () {
+                console.log(this);
+                // console.log(`hello${this.name}${this.mobile}`);
+            },
+            'helloArrow': () => {
+                console.log(this);
+            }
+        }
+        console.log(myObj["name"]);
+        console.log(myObj["hello"]);
+        myBtn.addEventListener('click', function () {
+            // myObj.hello();
+            myObj.sayAll();
+            myObj.helloArrow();
+            
+        })
+        // document.write(`箭頭涵式 ${myObj.helloArrow}`);
+
+    </script>
+</body>
+
+</html>

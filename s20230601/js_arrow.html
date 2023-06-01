@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="arrowBtn">arrow function</button>
+    <button id="normalBtn">normal function</button>
+    <button id="normalAdd">normalAdd</button>
+    <button id="arrowAdd">arrowAdd</button>
+    <script>
+        let normalBtn = document.getElementById('normalBtn');
+        let arrowBtn = document.getElementById('arrowBtn');
+        let norAdd = document.getElementById('normalAdd');
+        let arrAdd = document.getElementById('arrowAdd');
+
+        // ↓若只是要回傳某個值，可以省略return
+        let normal = function () {
+            return console.log('normal OK');
+        }
+        // 下面的箭頭函式等同於上面原本的寫法
+        //  ↓沒參數時要加上空括號
+        let arrow1 = () => {
+            console.log('arrow-1');
+        }
+        let arrow2 = () => console.log('arrow-2 OK');
+        normal();
+        arrow1();
+        arrow2();
+
+        let arrowAdd = (a, b) => a + b;
+        // 上面的箭頭函式等同於下面原本的寫法
+        let normalAdd = function (a, b) {
+            return a + b;
+        }
+        console.log(normalAdd(2, 4));
+        console.log(arrowAdd(2, 4));
+
+
+        norAdd.addEventListener('click', function () {
+            console.log(normalAdd(3, 5));
+        })
+        arrAdd.addEventListener('click', () => console.log(arrowAdd(2, 3)));
+
+
+
+        normalBtn.addEventListener('click', function () {
+            console.log('normalBtn OK');
+            console.log(this);
+        })
+        // 下面的箭頭函式等同於上面原本的寫法
+        arrowBtn.addEventListener('click', (value, key) => {
+            console.log('arrowBtn-1');
+            // console.log(this);
+        })
+        arrowBtn.addEventListener('click', () => {
+            console.log('arrowBtn-2');
+            console.log(this);
+        })
+
+        let myArr = [1, 2, 3, 4, 5];
+        let mapArrowArr = myArr.map((value, key) => value * 2);
+        // 上面為箭頭函式，下面為原本寫法
+        let mapNormalArr = myArr.map(function (value, key) {
+            return value * 2;
+        })
+        console.log(mapArrowArr);
+        console.log(mapNormalArr);
+
+
+        let fn = function () {
+            console.log(this);
+        }
+        let fn1 = () => console.log(this);
+        fn();
+        fn1();
+
+
+    </script>
+</body>
+
+</html>

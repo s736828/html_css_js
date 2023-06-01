@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table{
+            border-collapse: collapse;
+        } */
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>員工薪水計算</h3>
+    <label for="">工作天數:</label>
+    <input type="number" id="days" onchange="change()" min="0" max="31"><br>
+    <label for="">每日薪水:</label>
+    <input type="number" id="salary" onchange="change()" min="0"><br>
+    <button id="staff">totalsum</button>
+    <span id="printsum"></span><br>
+    <span id="result"></span>
+    <h3>學生成績計算</h3>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>國文</th>
+            <th>英文</th>
+            <th>數學</th>
+            <th>總分</th>
+            <th>平均</th>
+        </tr>
+        <tr>
+            <td id="name"></td>
+            <td><input id="chinese" type="number"></td>
+            <td><input id="english" type="number"></td>
+            <td><input id="math" type="number"></td>
+            <td id="totalscore"></td>
+            <td id="average"></td>
+        </tr>
+        <tr>
+            <td id="name1"></td>
+            <td id="chinese1" type="number"></td>
+            <td id="english1" type="number"></td>
+            <td id="math1" type="number"></td>
+            <td id="totalscore1"></td>
+            <td id="average1"></td>
+        </tr>
+        <!-- 以上為get id 以下為get class -->
+        <tr>
+            <td class="name1"></td>
+            <td class="chinese1" type="number"></td>
+            <td class="english1" type="number"></td>
+            <td class="math1" type="number"></td>
+            <td class="totalscore1"></td>
+            <td class="average1"></td>
+        </tr>
+        <tr>
+            <td class="name1"></td>
+            <td class="chinese1" type="number"></td>
+            <td class="english1" type="number"></td>
+            <td class="math1" type="number"></td>
+            <td class="totalscore1"></td>
+            <td class="average1"></td>
+        </tr>
+        <tr>
+            <td class="name1"></td>
+            <td class="chinese1" type="number"></td>
+            <td class="english1" type="number"></td>
+            <td class="math1" type="number"></td>
+            <td class="totalscore1"></td>
+            <td class="average1"></td>
+        </tr>
+        <tr>
+            <td class="name1"></td>
+            <td class="chinese1" type="number"></td>
+            <td class="english1" type="number"></td>
+            <td class="math1" type="number"></td>
+            <td class="totalscore1"></td>
+            <td class="average1"></td>
+        </tr>
+
+    </table>
+    <button id="Btn">計算</button>
+    <script>
+        const staff = document.getElementById('staff');
+        const days = document.getElementById('days');
+        const salary = document.getElementById('salary');
+        const printsum = document.getElementById('printsum');
+        const result = document.getElementById('result');
+        let daytotal;
+        let salaryTotal;
+
+        let staffs = {
+            'name': 'jerry',
+            'mobile': '0915-128-589',
+            'days': () => {
+                // daytotal = Number(days.value);
+                console.log(daytotal);
+                // console.log(days.value);
+            },
+            'salary': () => {
+                // salaryTotal = Number(salary.value);
+                console.log(salaryTotal);
+                // console.log(salary.value);
+            },
+            'totalSum': () => {
+                console.log(daytotal * salaryTotal);
+                // console.log(days.value * salary.value);
+                printsum.innerText = `薪水總計:${daytotal * salaryTotal}元`;
+                // console.log(this);
+            }
+        }
+
+        function totalSum() {
+            return daytotal * salaryTotal;
+        }
+        staff.addEventListener('click', () => {
+            console.log(totalSum());
+            staffs.days();
+            staffs.salary();
+            staffs.totalSum();
+            resultText();
+        });
+
+        function change() {
+            daytotal = days.value;
+            salaryTotal = salary.value;
+        }
+        function resultText() {
+            result.innerText = `員工:${staffs.name}
+                              電話:${staffs.mobile}
+                              工作天數:${days.value}
+                              每日薪水:${salary.value}
+                              總計:${totalSum()}`
+        }
+
+        const name = document.getElementById('name');
+        const chinese = document.getElementById('chinese');
+        const english = document.getElementById('english');
+        const math = document.getElementById('math');
+        const totalscore = document.getElementById('totalscore');
+        const average = document.getElementById('average');
+        const Btn = document.getElementById('Btn');
+
+        const name1 = document.getElementById('name1');
+        const chinese1 = document.getElementById('chinese1');
+        const english1 = document.getElementById('english1');
+        const math1 = document.getElementById('math1');
+        const totalscore1 = document.getElementById('totalscore1');
+        const average1 = document.getElementById('average1');
+        let stusum;
+        let stusum1;
+        let students = {
+            'name': ['mark', 'jerry'],
+            'Chinese1': 60,
+            'english1': 70,
+            'math1': 80,
+            'totalscore1': () => stusum1 = (students.Chinese1 + students.english1 + students.math1),
+            'average1': () => Math.round(stusum1 / 3 *100)/100,
+            'totalscore': () => stusum = Number(chinese.value) + Number(english.value) + Number(math.value),
+            'average': () => Math.round(stusum / 3 * 100) / 100
+            // Math.round(stusum / 3 * 100)這樣是變成4位數，最後/100就等於取小數第二位
+        }
+        Btn.addEventListener('click', () => {
+            name.innerText = students.name[0];
+            totalscore.innerText = students.totalscore();
+            average.innerText = students.average();
+
+            name1.innerText = students.name[1];
+            chinese1.innerText = students.Chinese1;
+            english1.innerText = students.english1;
+            math1.innerText = students.math1;
+            totalscore1.innerText = students.totalscore1();
+            average1.innerText = students.average1();
+
+        })
+
+        // querySelectorAll(.class)
+        const name2 = document.querySelectorAll('.name1')
+        const chinese2 = document.querySelectorAll('.chinese1')
+        const english2 = document.querySelectorAll('.english1')
+        const math2 = document.querySelectorAll('.math1');
+        const totalscore2 = document.querySelectorAll('.totalscore1');
+        const average2 = document.querySelectorAll('.average1');
+        let sumto = [];
+        let stu = {
+            'name': ['dog', 'cat', 'elements', 'orange'],
+            'chinese': [80, 90, 70, 65],
+            'english': [50, 60, 80, 40],
+            'math': [75, 50, 55, 85],
+            'totalscore': function () {
+                stu.chinese.forEach((value, key) => {
+                    sumto.push(value + stu.english[key] + stu.math[key]);
+                    console.log(sumto);
+                })
+                totalscore2.forEach((value, key) => {
+                    value.innerText = sumto[key];
+                })
+            },
+            'average': function () {
+                average2.forEach((value, key) => {
+                    value.innerText = Math.round(sumto[key] / 3);
+                    // console.log(sumto);
+                })
+            }
+        }
+        stu.totalscore();
+        stu.average();
+        name2.forEach((value, key) => {
+            value.innerText = stu.name[key];
+        });
+        chinese2.forEach((value, key) => {
+            value.innerText = stu.chinese[key];
+        });
+        english2.forEach((value, key) => {
+            value.innerText = stu.english[key];
+        });
+        math2.forEach((value, key) => {
+            value.innerText = stu.math[key];
+        });
+
+
+    </script>
+</body>
+
+</html>
