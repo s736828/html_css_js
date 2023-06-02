@@ -205,11 +205,13 @@
                 totalscore2.forEach((value, key) => {
                     value.innerText = sumto[key];
                 })
+                // totalscore2[key].innerText=(value + stu.english[key] + stu.math[key]);
             },
             'average': function () {
                 average2.forEach((value, key) => {
                     value.innerText = Math.round(sumto[key] / 3);
                     // console.log(sumto);
+                    // value.innerText = Math.round(totalscore2[key].innerText / 3*100)/100;
                 })
             }
         }
