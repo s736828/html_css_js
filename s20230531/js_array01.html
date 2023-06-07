@@ -26,7 +26,7 @@
         })
         // indexOf()取索引
         console.log(arr.indexOf('Su'));
-
+        // filter()篩選
         let arr2 = arr.filter(function (value) {
             return value.length > 3;
             // 文字長度>3
@@ -34,7 +34,9 @@
         console.log(arr2);
 
         let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        // reduce()累加壓縮
         let getSum = numArr.reduce(function (total, Value, Index, arr) {
+          
             // return Value;
             // return total+Value;
             // return total;
