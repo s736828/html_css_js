@@ -11,10 +11,57 @@
         .h-50vh {
             height: 50vh;
         }
+
+        .h-40vh {
+            height: 40vh;
+        }
     </style>
 </head>
-
 <body>
+    <!-- sticky-top  , fixed-top上面bar黏住-->
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark fixed-top" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mario</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://tw.yahoo.com/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://movies.yahoo.com.tw/movieinfo_main.html/id=14299">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -65,9 +112,15 @@
             </div>
             <div class="col-4">
                 <span>
-                    任天堂暨照明娛樂共同出品一部改編自最受歡迎電玩遊戲《超級瑪利歐兄弟》的全新動畫片《超級瑪利歐兄弟電影版》。
-                    《超級瑪利歐兄弟電影版》一片的導演是亞倫霍瓦斯和麥可傑勒尼克（卡通影集《少年悍將GO！》、《電影少年悍將GO！》），編劇是馬修福格（《樂高玩電影2》、《小小兵2：格魯的崛起》），配音演員包括克里斯普瑞特（瑪利歐）、安雅泰勒喬伊（碧姬）、查理戴（路易吉）、傑克布萊克（庫巴）、基根麥可奇（奇諾比奧）、塞斯羅根（咚奇剛）、佛萊德阿米森（庫朗奇剛）、凱文麥可理查森（卡美克）以及賽巴斯汀曼尼斯葛爾柯（布拉奇）。
+                    【超級瑪利歐兄弟電影版】
+                    配音明星: 克里斯普瑞特、安雅泰勒喬伊、查理戴、傑克布萊克、基根麥可奇、塞斯羅根、弗瑞德阿米森、凱文麥可理查森、賽巴斯汀曼尼斯葛爾柯
+                    編劇: 馬修福格
+                    導演: 亞倫霍瓦特、麥可傑勒尼克
+                    製片: 克里斯梅勒丹德利、宮本茂
+                    任天堂暨照明娛樂共同出品一部改編自最受歡迎電玩遊戲《超級瑪利歐兄弟》的全新動畫片【超級瑪利歐兄弟電影版】。
+                    【超級瑪利歐兄弟電影版】一片的導演是亞倫霍瓦斯和麥可傑勒尼克（卡通影集【少年悍將GO！】、【電影少年悍將GO！】），編劇是馬修福格（【樂高玩電影2】、【小小兵2：格魯的崛起】），配音演員包括克里斯普瑞特（瑪利歐）、安雅泰勒喬伊（碧姬公主）、查理戴（路易吉）、傑克布萊克（庫巴）、基根麥可奇（奇諾比奧）、塞斯羅根（咚奇剛）、佛萊德阿米森（庫朗奇剛）、凱文麥可理查森（卡美克）以及賽巴斯汀曼尼斯葛爾柯（布拉奇）。
                     這部動畫片的製片是照明娛樂創辦人和執行長克里斯梅勒丹德利以及任天堂的「瑪利歐之父」宮本茂。這部動畫片將由環球影業與任天堂共同出資製作，並由環球影業全球發行。
+
                 </span>
             </div>
             <!-- <div class="col-4" style="border: 1px solid black;"> -->
@@ -78,22 +131,16 @@
         <br>
 
         <div class="row">
-            <div class="col-6">
-                <iframe width="100%" height="350" src="https://www.youtube.com/embed/iE-BqYVfA4I"
-                    title="YouTube video player" frameborder="0"
+            <div class="col">
+                <iframe class="float-start me-4 my-3" width="60%" height="400"
+                    src="https://www.youtube.com/embed/iE-BqYVfA4I" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-            </div>
-            <div class="col-6">
                 <span>
-                    【超級瑪利歐兄弟電影版】
-                    配音明星: 克里斯普瑞特、安雅泰勒喬伊、查理戴、傑克布萊克、基根麥可奇、塞斯羅根、弗瑞德阿米森、凱文麥可理查森、賽巴斯汀曼尼斯葛爾柯
-                    編劇: 馬修福格
-                    導演: 亞倫霍瓦特、麥可傑勒尼克
-                    製片: 克里斯梅勒丹德利、宮本茂
-                    任天堂暨照明娛樂共同出品一部改編自最受歡迎電玩遊戲《超級瑪利歐兄弟》的全新動畫片【超級瑪利歐兄弟電影版】。
-                    【超級瑪利歐兄弟電影版】一片的導演是亞倫霍瓦斯和麥可傑勒尼克（卡通影集【少年悍將GO！】、【電影少年悍將GO！】），編劇是馬修福格（【樂高玩電影2】、【小小兵2：格魯的崛起】），配音演員包括克里斯普瑞特（瑪利歐）、安雅泰勒喬伊（碧姬公主）、查理戴（路易吉）、傑克布萊克（庫巴）、基根麥可奇（奇諾比奧）、塞斯羅根（咚奇剛）、佛萊德阿米森（庫朗奇剛）、凱文麥可理查森（卡美克）以及賽巴斯汀曼尼斯葛爾柯（布拉奇）。
-                    這部動畫片的製片是照明娛樂創辦人和執行長克里斯梅勒丹德利以及任天堂的「瑪利歐之父」宮本茂。這部動畫片將由環球影業與任天堂共同出資製作，並由環球影業全球發行。
+                    故事從庫巴從企鵝王國奪取無敵星開始，隨後畫面切換到瑪利歐和路易吉在紐約市布魯克林區創業，開辦了一家管道疏通公司，但是反響不佳。兄弟二人不但遭到父親的反對，還被前雇主司派克嘲諷。兄弟二人在聽聞紐約市出現大規模地下水管爆裂事故後主動前去維修，在地底發現了神秘綠色水管並被吸入，二人在穿越的過程中分離。瑪利歐被傳送到蘑菇王國，而路易吉則被傳送到由庫巴掌控的「暗黑之國」並被俘虜。庫巴正在盤算向蘑菇王國的管理者碧姬公主求婚，如果對方不從，就利用自己掠奪來的無敵星把蘑菇王國毀滅。來到蘑菇王國的瑪利歐在奇諾比奧的帶領下覲見碧姬公主，公主此時正在準備前往森林王國向庫朗奇剛請求兵援。瑪利歐幾乎通過了公主的能力測驗，順利與公主和奇諾比奧一同隨行。
+                    在森林王國，庫朗奇剛同意如果瑪利歐能擊敗他的兒子咚奇剛就派兵援助。在競技場上，瑪利歐起初處於劣勢，但是他在獲得了超級鈴鐺變身成貓咪瑪利歐後反敗為勝。獲得了金剛軍團援助的瑪利歐一行人抄近道經由彩虹之路駕車趕回蘑菇王國，中途被因為感覺自己要被瑪利歐橫刀奪愛而惱羞成怒的庫巴率領的軍團伏擊。金剛軍團全軍覆沒被俘虜，瑪利歐和咚奇剛被藍龜殼砸下賽道，只有碧姬公主和奇諾比奧兩人僥倖逃回蘑菇王國。
+                    碧姬公主安排臣民疏散避難，在庫巴的威脅下同意婚事。在婚禮上，奇諾比奧在花束中藏了一朵冰之花，庫巴打算把所有俘虜丟入岩漿中獻祭，碧姬公主趁機翻臉利用冰之花把庫巴凍住，救出了俘虜。與此同時，瑪利歐和咚奇剛也乘坐咚奇剛的火箭滾筒來到了婚禮現場。庫巴掙脫冰凍，發射一顆大炮彈刺客企圖摧毀蘑菇王國，瑪利歐則變身成尾巴瑪利歐吸引炮彈刺客，將它引入來到蘑菇王國時的管道。炮彈刺客在管道中爆炸，導致整個蘑菇王國包括瑪利歐和庫巴等人全部被傳送到了布魯克林。
+                    瑪利歐和路易吉利用庫巴的無敵星變身無敵，輕鬆擊敗了庫巴的軍團、打倒了庫巴。作為懲罰，碧姬公主把迷你蘑菇餵給庫巴，然後奇諾比奧將體型縮小後的庫巴關進了玻璃瓶當中。拯救了布魯克林的兄弟二人得到了布魯克林居民的讚賞，也得到了雙親和前雇主的肯定。在電影的最後，兄弟二人定居蘑菇王國。片尾彩蛋中，一顆有著綠色波點的神秘巨蛋突然出現一道裂縫，蛋裡傳來一聲耀西的叫聲。
                 </span>
             </div>
         </div>
@@ -109,12 +156,10 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
+                        <strong>This is the first item's accordion body.</strong>
+                        任天堂暨照明娛樂共同出品一部改編自最受歡迎電玩遊戲《超級瑪利歐兄弟》的全新動畫片《超級瑪利歐兄弟電影版》。
+                        《超級瑪利歐兄弟電影版》一片的導演是亞倫霍瓦斯和麥可傑勒尼克（卡通影集《少年悍將GO！》、《電影少年悍將GO！》），編劇是馬修福格（《樂高玩電影2》、《小小兵2：格魯的崛起》），配音演員包括克里斯普瑞特（瑪利歐）、安雅泰勒喬伊（碧姬）、查理戴（路易吉）、傑克布萊克（庫巴）、基根麥可奇（奇諾比奧）、塞斯羅根（咚奇剛）、佛萊德阿米森（庫朗奇剛）、凱文麥可理查森（卡美克）以及賽巴斯汀曼尼斯葛爾柯（布拉奇）。
+                        這部動畫片的製片是照明娛樂創辦人和執行長克里斯梅勒丹德利以及任天堂的「瑪利歐之父」宮本茂。這部動畫片將由環球影業與任天堂共同出資製作，並由環球影業全球發行。
                     </div>
                 </div>
             </div>
@@ -122,17 +167,12 @@
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
+                        image
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
+                        <img src="./image/mario-02.jpg" width="60%">
                     </div>
                 </div>
             </div>
@@ -140,18 +180,14 @@
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
+                        image
                     </button>
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
+                        <img src="./image/mario-03.jpg" alt="">
                     </div>
+
                 </div>
             </div>
         </div>
@@ -200,36 +236,160 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <!-- 彈跳視窗 -->
-    <!-- Button trigger modal -->
-    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        刪除
-    </button>
+        <div class="row">
+            <div class="col">
+                <!-- 彈跳視窗 -->
+                <!-- Button trigger modal -->
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    刪除
+                </button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">編輯刪除</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">編輯刪除</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                確定要刪除嗎??
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消Close</button>
+                                <button type="button" class="btn btn-primary">確定送出Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="modal-body">
-                    確定要刪除嗎??
-                </div>
+            <div class="col">
+            <!-- 分頁 -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消Close</button>
-                    <button type="button" class="btn btn-primary">確定送出Save changes</button>
+            <div class="col">
+            <!-- Example single danger button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    
+
+        <form class="row g-3">
+            <div class="col-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-3">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword4">
+            </div>
+
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInput">Name</label>
+                <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
+            </div>
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                <div class="input-group">
+                    <div class="input-group-text">@</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                </div>
+            </div>
+            <div class="col-auto">
+                <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                <select class="form-select" id="autoSizingSelect">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                    <label class="form-check-label" for="autoSizingCheck">
+                        Remember me
+                    </label>
+                </div>
+            </div>
+            
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+          </form>
+
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
