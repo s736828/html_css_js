@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .box {
+            width: 100%;
+            height: 70vh;
+        }
+
+        .btn {
+            width: 300px;
+            height: 100px;
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        // ready 是等html載入後才會開始執行, 可以試著把 $(document).ready(function (){}拿掉就會錯誤
+        // $(document).ready(function () {
+            // const btns = $('.btn');
+            // const myImg = $('#myImg');
+        // });
+        // 方法2-2 dataObj vs indexInArray
+        // $.each(btns, function (indexInArray, valueOfElement) {
+        //     $(valueOfElement).click(function (e) {
+        //         console.log(valueOfElement);
+        //         myImg.attr('src', `https://picsum.photos/id/${dataObj.img[indexInArray]}/1100/600`)
+        //     })
+        // });
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box text-center mt-3 bg-dark pt-4">
+                    <img id="myImg" src="https://picsum.photos/id/211/1000/600" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-primary" data-pic="pic1" data-num="101">primary</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-success" data-pic="pic2" data-num="102">success</button>
+            </div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-danger" data-pic="pic3" data-num="103">danger</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let data = {
+            pic1: "31",
+            pic2: "32",
+            pic3: "33"
+        }
+        // console.log(data);
+        // console.log(data.pic1);
+        // console.log(data['pic2']);
+        // console.log(data->pic2);
+        let dataObj = {
+            img: ['44', '45', '46']
+        }
+        // console.log(dataObj.img);
+
+
+        // ready 是等html載入後才會開始執行
+        $(document).ready(function () {
+            // 是queryselector, 是抓class，有加.
+            const btns = $('.btn');
+            const myImg = $('#myImg');
+            // console.log(btns);
+
+            // 練習一
+            // $.each(btns, function (indexInArray, valueOfElement) {
+            // console.log(valueOfElement);
+            // let dataPic = $(valueOfElement).attr('data-pic');
+            // console.log(dataPic);
+            // $(valueOfElement).click(function (e) {
+            //     myImg.attr('src', `https://picsum.photos/id/${dataPic}/1100/600`);
+            // })
+            // });
+
+            // 練習二 抓obj方式
+            // $.each(btns, function (indexInArray, valueOfElement) {
+            //     $(valueOfElement).click(function (e) {
+            //         console.log(valueOfElement);
+            //         console.log(btns);
+            // 方法2-1 data-set vs data
+            //         let dataPic = $(this).attr('data-pic');
+            //         console.log(dataPic);
+            //         console.log(`https://picsum.photos/id/${data[dataPic]}/1100/600`);
+            //         myImg.attr('src', `https://picsum.photos/id/${data[dataPic]}/1100/600`);
+            // })
+            // });
+
+            // 方式三，不用each 增加每個click
+            $('.btn').click(function (e) {
+                // console.log(this);
+                // console.log($(this));
+                let dataNum = $(this).attr('data-num');
+                console.log(dataNum);
+                myImg.attr('src', `https://picsum.photos/id/${dataNum}/1100/600`);
+            })
+        });
+
+
+    </script>
+</body>
+
+</html>

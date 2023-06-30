@@ -51,8 +51,14 @@
     <script>
         let btns = document.querySelectorAll(".btn");
         let boxs = document.querySelectorAll(".box");
-        // console.log(btns);
-        // console.log(boxs);
+        boxs.forEach(function(value,index,arr){
+            // console.log(index);
+            // console.log(value);
+            // console.log(arr);
+            // console.log(boxs);
+        })
+        // 以上印出log查看用，arr跟boxs的印出是一樣的
+
         btns.forEach(element => {
             element.innerText = element.getAttribute('data-num');
             // console.log(this);
