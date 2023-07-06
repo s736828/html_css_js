@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            padding: 20px;
+            border: 2px solid blue;
+        }
+
+        .parent {
+            padding: 20px;
+            border: 2px dashed green;
+        }
+
+        table {
+            border: 1px solid yellow;
+            padding: 10px;
+        }
+
+        table td {
+            border: 1px solid orange;
+        }
+    </style>
+    <script src="./jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <span>main</span>
+        <div class="parent">
+            <span>parent</span>
+            <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+            <table>
+                <tr>
+                    <td>甲</td>
+                    <td>乙</td>
+                    <td>丙</td>
+                </tr>
+            </table>
+            <ul>
+                <li>D</li>
+                <li>E</li>
+                <li>F</li>
+            </ul>
+            <table>
+                <tr>
+                    <td>子</td>
+                    <td>丑</td>
+                    <td>寅</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // $(".main").hover(
+    //     function () {
+    //         $(this).css("background", "skyblue")
+    //         $(this).children('div').css({
+    //             color: 'green',
+    //             background: 'lightgreen'
+    //         })
+    //     },
+    //     function(){
+    //         $(this).css('background',"white")
+    //     }
+    // )
+
+    $(".parent").children("ul").eq(1).children("li").eq(1).css({
+        background: '#ccc'
+    })
+    // children孩子
+    // siblings兄弟姊妹
+    $("li").on("click", function () {
+        $(this).siblings().css({ color: 'red' })
+        $(this).parent().siblings('table').css({ background: 'lightpink' })
+    })
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        ul li {
+            width: 10%;
+            text-align: center;
+            padding: 3px 6px;
+        }
+
+        ul li:hover {
+            background: blue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        ul ul{
+            display: none;
+        }
+        ul ul li{
+            width: 100%;
+            background: lightblue;
+            margin-left: -6px;
+            margin-bottom: -6px;
+        }
+
+        .content {
+            width: 50%;
+            border: 3px double black;
+            height: 100px;
+            padding: 20px;
+        }
+    </style>
+    <script src="./jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="nav-item">首頁
+            <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+        </li>
+        <li class="nav-item">產品介紹
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <li>d</li>
+                <li>e</li>
+            </ul>
+        </li>
+        <li>最新活動</li>
+        <li>線上購買</li>
+        <li>關於我們</li>
+    </ul>
+    <div class="content">
+
+    </div>
+</body>
+
+</html>
+<script>
+    $("li").hover(function () {
+        $(".content").html($(this).text())
+    })
+    $("li").on("click",function(){
+        // $("li").css({background:'white',color:'black',fontWeight:'300'})
+        // 使用下面執行5次，上面的執行6次，下面比較好效率比較高，可從
+        $(this).siblings().css({background:'white',color:'black',fontWeight:'300'})
+        $(this).css({background:'blue',color:'white',fontWeight:'bold'})
+    })
+
+    $(".nav-item").hover(
+        function(){
+            $(this).children('ul').css("display",'block')
+        },
+        function(){
+            $(this).children('ul').css("display",'none')
+        }
+    )
+    $(".nav-item ul li").hover(
+        function(){
+            $(this).css("background",'pink')
+        },
+        function(){
+            $(this).css("background",'skyblue')
+        }
+    )
+</script>

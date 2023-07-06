@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <!-- <form action="?" id="userinfo">
+        <input type="text" name="user" id="user">
+        <input type="button" value="送出" onclick="check()">
+    </form> -->
+    <form action="?">
+        <input type="text" name="user">
+        <input type="button" value="送出" onclick="check(this)">
+    </form>
+
+    <form action="?">
+        <input type="text" name="user">
+        <input type="button" value="送出" onclick="check(this)">
+    </form>
+
+    <form action="?">
+        <input type="text" name="user">
+        <input type="button" value="送出" onclick="check(this)">
+    </form>
+</body>
+</html>
+
+<script>
+    // function check(){
+    //     console.log('check');
+    //     let user=$("#user").val()
+    //     if(user==""){
+    //         alert("欄位不能為空");
+    //     }else{
+    //         $("#userinfo").submit()
+    //     }
+    // }
+    
+    // 可使用層級方法來控制，就不用寫一堆id
+    function check(dom){
+        console.log('check',dom);
+        let user=$(dom).prev().val()
+        if(user==""){
+            alert("欄位不能為空");
+        }else{
+            console.log(user);
+            $(dom).parent().submit()
+        }
+    }
+
+</script>
