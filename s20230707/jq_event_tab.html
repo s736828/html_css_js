@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .box {
+            width: 100%;
+            height: 500px;
+            background-color: lightblue;
+            display: none;
+        }
+        .coverBox{
+            position: fixed;
+            width: 80%;
+            height: 80vh;
+            left: 10%;
+            top: 10vh;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <button type="button" class="pageBtn btn btn-primary" data-self="#page1">Primary</button>
+        <button type="button" class="pageBtn btn btn-secondary" data-self="#page2">Secondary</button>
+        <button type="button" class="pageBtn btn btn-success" data-self="#page3">Success</button>
+        <button type="button" class="pageBtn btn btn-danger" data-self="#page4">Danger</button>
+        <button type="button" class="pageBtn btn btn-warning" data-self="#page5">Warning</button>
+        <button type="button" class="btn btn-primary" data-self="#myModal" id="modalBtn">Modal</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="page1" class="box mt-5">
+                    page 1
+                </div>
+                <div id="page2" class="box mt-5">
+                    page 2
+                </div>
+                <div id="page3" class="box mt-5">
+                    page 3
+                </div>
+                <div id="page4" class="box mt-5">
+                    page 4
+                </div>
+                <div id="page5" class="box mt-5">
+                    page 5
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="coverBox" id="myModal">
+        <div class="position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2">
+                <button type="button" class="btn btn-danger" id="closeBtn">x</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        // const btns = $('button');
+        const btns = $('.pageBtn');
+        const boxs = $('.box');
+        const modalBtn = $('#modalBtn');
+        const closeBtn = $('#closeBtn');
+        const myModal = $('#myModal');
+        console.log(btns);
+
+        btns.click(function () {
+            console.log(this);
+            let getDataSelf = $(this).attr('data-self');
+            //  let getDataSelf = $(this).data('self');
+            console.log(getDataSelf);
+            boxs.hide();
+            btns.removeClass('btn-lg');
+            $(this).addClass('btn-lg');
+            $(getDataSelf).show();
+            // 初始值 全部關閉 或者 全部打開
+            // 特定打開
+        });
+
+        modalBtn.click(function(){
+            boxs.hide();
+            btns.removeClass('btn-lg');
+            let getDataSelf=$(this).attr('data-self');
+            $(getDataSelf).show();
+        });
+
+        closeBtn.click(function(){
+            let thisModal=$(this).parent().parent().parent();
+            thisModal.hide();
+        })
+
+    })
+</script>
