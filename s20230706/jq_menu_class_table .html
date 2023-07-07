@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="container-fluid mt-3">
         <h2 id="myH2">Hover Rows</h2>
         <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
@@ -47,7 +46,7 @@
                     </td>
                     <td>
                         <div class="mt-4">
-                            <input type="number" class="form-control menu-total">
+                            <input type="number" class="form-control menu-total" value="0">
                         </div>
                     </td>
                 </tr>
@@ -72,7 +71,7 @@
                     </td>
                     <td>
                         <div class="mt-4">
-                            <input type="number" class="form-control menu-total">
+                            <input type="number" class="form-control menu-total" value="0">
                         </div>
                     </td>
                 </tr>
@@ -97,16 +96,48 @@
                     </td>
                     <td>
                         <div class="mt-4">
-                            <input type="number" class="form-control menu-total">
+                            <input type="number" class="form-control menu-total" value="0">
                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="mt-4">
+                            小計:total加總 = <span id="myResult"></span>
+                        </div>
+                        <!-- bootstrap找modal彈出視窗 -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            calculate
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <button type="button" class="btn btn-success">加總</button>
-    <span id="total"></span>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 加入折扣id -->
+                    total:<span id="modalResult">123456</span>
+                    <div id="bonus" class="text-danger">
+                        666
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -119,10 +150,37 @@
             const myPrice = $('.menu-price');
             const myNum = $('.menu-num');
             const myTotal = $('.menu-total');
-            const myBtn=$('.btn');
+            const myResult = $('#myResult');
+            const modalResult = $('#modalResult');
+            const bonus = $('#bonus');
+            bonus.hide();
             // console.log(myPrice);
             // console.log(myNum);
             // console.log(myTotal);
+
+            function getSum() {
+                let sum = 0;
+                $.each(myTotal, function (indexInArray, valueOfElement) {
+                    console.log(indexInArray);
+                    console.log(valueOfElement);
+
+                    let totalValue = Number($(valueOfElement).val());
+                    sum = sum + totalValue;
+                    console.log(sum);
+                });
+                myResult.text(sum);
+                modalResult.text(sum);
+
+                bonus.hide();
+                if (sum > 300) {
+                    let bonusValue = sum * 0.8;
+                    bonus.text(`恭喜您 超過300 獲得 優惠八折 =>${bonusValue}`);
+                    bonus.show();
+                }
+            }
+
+            getSum();
+
             $.each(myNum, function (indexInArray, valueOfElement) {
                 $(valueOfElement).click(function () {
 
@@ -157,11 +215,12 @@
                     totalNow.val(totalValue);
 
 
-                    console.log(trNow);
-                    console.log(priceNow);
-                    console.log(priceValue);
+                    // console.log(trNow);
+                    // console.log(priceNow);
+                    // console.log(priceValue);
                     // num * price
                     // 存到total
+                    getSum();
                 })
             });
 
