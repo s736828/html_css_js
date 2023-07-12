@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="../jquery-3.7.0.min.js"></script>
+    <style>
+        .box {
+            width: 100%;
+            height: 300px;
+            /* background-color: black; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn" class="opacity-50 btn btn-primary">fadeInBtn</button>
+                    <!-- opacity 透明度 可以用0 看不見 實際還是存在 -->
+                </div>
+                <div id="boxID" class="box bg-dark">
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn1" class="btn btn-success">fadeInBtn</button>
+                </div>
+                <div id="boxID1" class="box bg-dark">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn2" class="btn btn-danger">fadeInBtn</button>
+                </div>
+                <div id="boxID2" class="box bg-dark">
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn3" class="btn btn-warning">fadeInBtn</button>
+                </div>
+                <div id="boxID3" class="box bg-dark">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn2" class="btn btn-danger">fadeInBtn</button>
+                </div>
+                <div id="boxID2" class="box bg-dark">
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" id="slideBtn3" class="btn btn-warning">fadeInBtn</button>
+                </div>
+                <div id="boxID3" class="box bg-dark">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
+<script>
+    $(document).ready(function () {
+        // const slideBtn = $("#slideBtn");
+        // const slideBtn1 = $("#slideBtn1");
+        // const slideBtn2 = $("#slideBtn2");
+        // const slideBtn3 = $("#slideBtn3");
+        // const box = $("#boxID");
+        // const box1 = $("#boxID1");
+        // const box2 = $("#boxID2");
+        // const box3 = $("#boxID3");
+
+        // slideBtn.click(function () {
+        //     box.slideToggle(2000);
+        // });
+        // slideBtn1.click(function () {
+        //     box1.slideToggle(2000);
+        // });
+        // slideBtn2.click(function () {
+        //     box2.slideToggle(2000);
+        // });
+        // slideBtn3.click(function () {
+        //     box3.slideToggle(2000);
+        // });
+
+        // slideToggle()滑動切換
+        const btns = $(".btn");
+        const boxs = $(".box");
+        btns.click(function () {
+            let parentCol = $(this).parent().parent();
+            let closeBox = parentCol.find('.box');
+            closeBox.slideToggle();
+            console.log(parentCol);
+        })
+
+        $.each(btns, function (indexInArray, valueOfElement) {
+            $(valueOfElement).click(function () {
+                let parentCol = $(this).parent().parent();
+                let closeBox = parentCol.find('.box');
+                closeBox.slideToggle();
+                console.log(parentCol);
+                console.log(closeBox);
+            });
+        });
+        
+
+    })
+
+</script>
