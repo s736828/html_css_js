@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="appendBtn" class="btn btn-primary" type="button">append Button</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="prependBtn" class="btn btn-danger" type="button">prepend Button</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="appendToBtn" class="btn btn-primary" type="button">appendToBtn Button</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="prependToBtn" class="btn btn-danger" type="button">prependToBtn Button</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" id="myContainer">
+        <h3 id="myH3">Lorem ipsum dolor sit amet.</h3>
+    </div>
+
+
+    <div class="container">
+        <ul id="myUl">
+            <li>old</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // JQUERY 放在ready內
+        // 官網 推薦 用更簡短的方式表達
+        $(function () {
+            const appendBtn = $('#appendBtn');
+            const prependBtn = $('#prependBtn');
+            const appendToBtn = $('#appendToBtn');
+            const prependToBtn = $('#prependToBtn');
+            const myUl = $('#myUl');
+            let i = 0;
+
+            // append 往內加 放最後
+            // prepend 往內加 放最前
+            let appendText = '<li>appendText</li>';
+            let prependText = '<li>prependText</li>'
+
+            appendBtn.click(function(){
+                console.log('appendBtn ok');
+                i++;
+                myUl.append(`${appendText} => ${i}`);
+
+            })
+
+            prependBtn.click(function(){
+                console.log('prependBtn ok');
+                i++;
+                myUl.prepend(`${prependText} => ${i}`);
+            })
+
+
+            appendToBtn.click(function(){
+                console.log('appendToBtn ok');
+                i++;
+                let content = `<li>appendToBtn ${i}</li>`;                
+                $(content).appendTo(myUl);
+            })
+            prependToBtn.click(function () {
+                console.log('prependToBtn ok');
+                i++;
+                let content = `<li>prependToBtn ${i}</li>`;                
+                $(content).prependTo(myUl);
+            })
+
+        });
+    </script>
+</body>
+
+</html>
