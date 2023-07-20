@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .self-red {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="itemBtn btn btn-primary" type="button" id="item1Btn" data-stock-name="拿鐵">
+                    </button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="itemBtn btn btn-success" type="button" id="item2Btn" data-stock-name="花茶">
+                    </button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="itemBtn btn btn-danger" type="button" id="item3Btn" data-stock-name="星冰樂">
+                    </button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="itemBtn btn btn-warning" type="button" id="item4Btn" data-stock-name="卡布奇諾">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container mt-5 border border-black" id="container-items">
+        <div class="item-row row mt-5">
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label">商品</label>
+                    <input type="text" class="form-control stockName" disabled>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label">數量</label>
+                    <input type="number" class="form-control numInput">
+                </div>
+            </div>
+            <div class="col">
+
+                <label class="form-label">甜度</label>
+                <select class="form-select sugerInput" name="iceInput">
+                    <option value="少糖" selected>少糖</option>
+                    <option value="正常">正常</option>
+                    <option value="半糖">半糖</option>
+                    <option value="微糖">微糖</option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- <div class="mb-3">
+                    <label for="iceInput" class="form-label">冰塊</label>
+                    <input id="iceInput" type="text" class="form-control">
+                </div> -->
+                <label for="" class="form-label">冰塊</label>
+                <select class="form-select iceInput" name="iceInput">
+                    <option value="少冰" selected>少冰</option>
+                    <option value="去冰">去冰</option>
+                    <option value="正常">正常</option>
+                </select>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="psInput" class="form-label">備註</label>
+                    <input id="psInput" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="psInput" class="form-label">操作</label>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-danger" type="button" id="delBtn">
+                            <i class="fa-solid fa-xmark"></i>&nbsp;&nbsp; 刪除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-danger" type="button" id="checkBtn">確定新增</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <hr>
+                購買明細資料
+                <div class="div p-5 border border-black" id="exDiv">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-refe.rrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            const itemBtn = $('.itemBtn')
+            const exDiv = $('#exDiv');
+            const nameInput = $('.nameInput');
+            const numInput = $('.numInput');
+            const psInput = $('.psInput');
+            const sugerInput = $('.sugerInput');
+            const iceInput = $('.iceInput');
+            const checkBtn = $('#checkBtn');
+            const containerItems = $('#container-items');
+            const delBtn = $('#delBtn');
+
+            let i = 0; //click 第幾個
+
+
+            // 按鈕名稱
+            $.each(itemBtn, function (indexInArray, valueOfElement) {
+                let stockName = $(this).attr('data-stock-name');
+                $(valueOfElement).text(`${stockName}`);
+            });
+
+            // 刪除
+            delBtn.click(function () {
+                // 刪除點下 刪除這一'行'
+                // console.log('delBtn ok');
+                // console.log('this', this);
+                let nowDelBtn = $(this);
+                // 去看一下html 就可以知道要幾次parent 之後console.log
+                let nowRow = nowDelBtn.parent().parent().parent().parent();
+                // console.log('nowDelBtn', nowDelBtn);
+                // console.log('nowRow', nowRow);
+                nowRow.remove();
+
+            });
+
+            // 選擇品項
+            itemBtn.click(function () {
+                let getRowStockName = $('.item-row').first().find('.stockName').val();
+                console.log('getRowStockName', getRowStockName);
+                console.log('getRowStockName.length', getRowStockName.length);
+
+                // getRowStockName.length == 0 代表商品沒有文字 取代
+                // 有文字 clone
+
+                if (getRowStockName.length > 0) {
+                    // 抓第一行clone                
+                    $('.item-row').first().clone().appendTo('#container-items');
+                }
+                // 抓最後一行 清洗value
+                let lastRow = $('.item-row').last();
+                // lastRow.find('input').val('');
+
+                let stockName = $(this).attr('data-stock-name');
+                console.log('stockName', stockName);
+
+                lastRow.find('.stockName').val(stockName);
+                lastRow.find('.numInput').val('1');
+                lastRow.find('.psInput').val('');
+                lastRow.find('.sugerInput').val('少糖');
+                lastRow.find('.iceInput').val('少冰');
+
+            });
+
+
+            // itemBtn.click(function () {
+            //     // exDiv append method
+            //     let stockName = $(this).attr('data-stock-name');
+
+            //     nameInput.val(stockName);
+            //     numInput.val('1');
+            //     psInput.val('');
+            //     sugerInput.val('少糖');
+            //     iceInput.val('少冰');
+
+            // });
+
+            // 確定送出
+            checkBtn.click(function () {
+                i++;
+                let name = nameInput.val();
+                let num = numInput.val();
+                let ps = psInput.val();
+                let suger = sugerInput.val();
+                let ice = iceInput.val();
+
+                let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${suger} ${ice} ${ps}</p>`;
+                exDiv.append(content);
+            });
+
+
+            // // appendBtn click
+            // item1Btn.click(function () {
+            //     // exDiv append method
+            //     let stockName = $(this).attr('data-stock-name');
+
+            //     nameInput.val(stockName);
+            //     numInput.val('1');
+            //     psInput.val('');
+
+            // });
+
+
+
+        });
+    </script>
+</body>
+
+</html>
+
+
+

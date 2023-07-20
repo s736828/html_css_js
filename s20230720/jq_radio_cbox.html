@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<style>
+    input[type="radio"][name="myRadio"]:checked {
+        background-color: lightgreen;
+    }
+
+    input[type="radio"][name="myRadio2"]:checked {
+        background-color: lightpink;
+    }
+</style>
+
+<body>
+    <form action="">
+        <div class="container">
+            <h2>今天中午吃什麼?</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio" id="Radio1" value="傻瓜乾麵">
+                <label class="form-check-label" for="Radio1">
+                    傻瓜乾麵
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio" id="Radio2" value="貨櫃屋" checked>
+                <label class="form-check-label" for="Radio2">
+                    貨櫃屋
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio" id="Radio3" value="麥當勞">
+                <label class="form-check-label" for="Radio3">
+                    麥當勞
+                </label>
+            </div>
+
+            <h2>今天中午喝什麼?</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio2" id="flexRadio1" value="奶茶">
+                <label class="form-check-label" for="flexRadio1">
+                    奶茶
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio2" id="flexRadio2" value="咖啡" checked>
+                <label class="form-check-label" for="flexRadio2">
+                    咖啡
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="myRadio2" id="flexRadio3" value="水果茶">
+                <label class="form-check-label" for="flexRadio3">
+                    水果茶
+                </label>
+            </div>
+
+            <h2>Other</h2>
+            <div class="form-check">
+                <input class="checkAll form-check-input" type="checkbox" id="ca" value="">
+                <label for="ca">全選</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="袋子" id="Check1">
+                <label class="form-check-label" for="Check1">
+                    袋子
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="辣椒醬" id="Check2">
+                <label class="form-check-label" for="Check2">
+                    辣椒醬
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="餐具" id="Check3">
+                <label class="form-check-label" for="Check3">
+                    餐具
+                </label>
+            </div>
+
+            <hr>
+            <button type="button" id="myBtn" class="btn btn-info">送出</button>
+            <button type="button" id="myCancel" class="btn btn-danger">全部取消</button>
+            <div id="resultSpan">result text</div>
+        </div>
+    </form>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+<script src="../jquery-3.7.0.min.js"></script>
+
+</html>
+<script>
+    $(function () {
+        const myBtn = $('#myBtn');
+        const cancel = $('#myCancel');
+        const resultSpan = $('#resultSpan');
+        myBtn.click(function () {
+            // console.log(myBtn);
+            let radioValue = $('input[type="radio"][name="myRadio"]:checked').val()
+            let radioValue2 = $('input[type="radio"][name="myRadio2"]:checked').val()
+            let checkboxValue = $('input[type="checkbox"]:checked')
+            console.log(radioValue);
+            console.log(radioValue2);
+            // console.log(checkboxValue);
+            let tmp = '';
+            $.each(checkboxValue, function (indexInArray, valueOfElement) {
+                tmp += $(valueOfElement).val() + ' ';
+                console.log(valueOfElement);
+            });
+            let content = `今天的午餐: ${radioValue} 飲料: ${radioValue2} 其他:${tmp}`;
+            resultSpan.text(content);
+        })
+
+        $(".checkAll").click(function () {
+            if ($(".checkAll").prop("checked")) {//如果全選按鈕有被選擇的話（被選擇是true）
+                $("input[type='checkbox']").prop("checked", true);//把所有的核取方框的變成勾選
+            } else {
+                $("input[type='checkbox']").prop("checked", false);//把所有的核取方框都取消勾選
+            }
+        })
+        cancel.click(function () {
+            $("input[type='radio']").removeAttr('checked');
+            $("input[type='radio']").prop("checked", false);
+            $("input[type='checkbox']").prop("checked", false);
+        })
+
+    })
+
+
+
+
+
+</script>
