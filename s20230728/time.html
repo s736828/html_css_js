@@ -57,8 +57,7 @@
         let mgd = document.querySelectorAll('.mgd');
         mgd[0].style.opacity = 1;
         mgd[1].style.opacity = 1;
-        // console.log(mgd);
-        // 功能需求，:會閃500半閃一次
+        // 功能需求，:會閃500毫秒 閃一次
         // 該setTimeout()方法在幾毫秒後調用函數。
         // 1 秒 = 1000 毫秒。
         setTimeout(function () {
@@ -66,9 +65,9 @@
             mgd[0].style.opacity = 0;
             mgd[1].style.opacity = 0;
         }, 500)
-        // setInterval(timeFun, 1000)
     }
-    timeFun();//開啟頁面載入一次方法
+
+    timeFun();//開啟頁面載入一次
     setInterval(timeFun, 1000)//指定時間間隔計時(以毫秒為單位)
     // setTimeout()僅執行一次。
     // 如果需要重複執行，請改用setInterval()。
