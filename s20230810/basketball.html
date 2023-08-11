@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container border border-info border-5 text-center p-3 mt-5">
+        <div class="row">
+            <h1>投藍大賽</h1>
+            <div>
+                分數
+            </div>
+            <h3 id="Highscore">
+                歷史最高分數
+            </h3>
+        </div>
+
+        <h4 id="score">得分0</h4>
+        <hr>        
+        <h4 id="timer">倒數計時60秒</h4>
+    </div>
+
+    <div class="container border border-5 border-success text-center p-3 mt-5">
+        <button type="button" id="startBtn">開始</button>
+        <button type="button" id="inBtn">進球</button>
+        <button type="button" id="resetBtn">重置</button>
+    </div>
+
+</body>
+<script src="../jquery-3.7.0.min.js"></script>
+
+</html>
+
+
+<script>
+    $(function () {
+        const startBtn = $('#startBtn'); //開始
+        const inBtn = $('#inBtn'); //進球
+        const resetBtn = $('#resetBtn'); //重置
+        const score = $('#score'); //分數
+        const timer = $('#timer'); //計時器
+        const Highscore = $('#Highscore');//最高歷史分數
+
+        const initScore = 0; //初始分數
+        const initTime = 60; //初始時間
+
+        let scoreNow = 0; //現在分數
+        let time = 60;
+
+        let myInterval;
+        let isGame = true; //開關遊戲用
+
+        inBtn.hide();
+        // localStorage本地儲存，getItem獲取項目
+        let scoreHighHistory = localStorage.getItem("scoreHigh");
+        console.log('scoreHighHistory', scoreHighHistory);
+        if (scoreHighHistory > 0) {
+            Highscore.text("歷史最高分數" + scoreHighHistory);
+        }
+        // 以下為function動作
+        // 開始
+        startBtn.click(function () {
+            if (isGame == false) {
+                return false; //跳出function
+            }
+
+            console.log(this);
+            $(this).hide();
+            inBtn.show();
+
+            // 倒數計時
+            myInterval = setInterval(function () {
+                time--;
+                if (time < 1) {
+                    clearInterval(myInterval);
+                    inBtn.hide();
+                    startBtn.show();
+                    startBtn.text('結束遊戲');
+                    // startBtn.prop('disabled', '123')
+                    // 有字串代表有東西就是true, 空字串代表false
+                    startBtn.attr('disabled', true)
+                    isGame = false;
+                    if (scoreNow > scoreHighHistory) {
+                        localStorage.setItem("scoreHigh", scoreNow);
+                        Highscore.text("最高歷史分數" + scoreNow);                        
+                    }
+                }
+                timer.text("倒數計時" + time + "秒");
+            }, 50)
+        });
+
+        // 進球
+        inBtn.click(function () {
+            if (time > 30) {
+                scoreNow = scoreNow + 2;
+            } else {
+                scoreNow = scoreNow + 3;
+            }
+            score.text("得分" + scoreNow);
+        });
+
+        // 重置
+        resetBtn.click(function () {
+            isGame = true;
+            inBtn.hide();
+            startBtn.show();
+            startBtn.text('開始');
+            startBtn.attr('disabled', false);
+            // startBtn.prop('disabled', '');
+            // 有字串代表有東西就是true, 空字串代表false
+
+            scoreNow = initScore;
+            score.text(scoreNow);
+
+            clearInterval(myInterval);
+            time = initTime;
+            timer.text("倒數計時" + time + "秒");
+        })
+    });
+
+</script>

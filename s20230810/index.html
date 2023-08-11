@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>ajax</h3>
+    <p id="myP">Hello</p>
+    <button type="button" id="myBtn">ajax btn</button>
+    <button type="button" id="moneyBtn">money btn</button>
+    <!-- <script src="../jquery-3.7.0.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-refe.rrer"></script>
+    <script>
+        $(function () {
+            const myP = $('#myP');
+            const moneyBtn=$('#moneyBtn');
+            const myBtn = $('#myBtn');
+    
+            myBtn.click(function () {
+                console.log('myBtn ok');
+                // let url = './getData.php';
+                $.ajax({
+                    type: "get",
+                    // url: url,
+                    url: './getData.php',
+                    // data: JSON,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                    },
+
+                });
+            });
+
+            moneyBtn.click(function () {
+                console.log('moneyBtn ok');
+                let url = './getMoneyData.php';
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: JSON,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                    },
+
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
