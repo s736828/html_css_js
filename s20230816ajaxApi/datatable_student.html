@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+
+</head>
+
+<body>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>MOBILE</th>
+            </tr>
+        </thead>
+        <tbody id="myTbody">
+            
+        <!-- foreach php .... -->
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <script>
+        // JQUERY 放在ready內
+        // 官網 推薦 用更簡短的方式表達
+        $(function () {
+            const myTbody = $('#myTbody');
+            let data = `<tr>
+                            <td>1</td>
+                            <td>amy</td>
+                            <td>0911-111-111</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>amy</td>
+                            <td>0911-111-111</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>amy</td>
+                            <td>0911-111-111</td>
+                        </tr>`;
+            myTbody.html(data);
+            $('#myTable').DataTable();
+
+        });
+    </script>
+</body>
+
+</html>
