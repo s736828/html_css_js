@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+</head>
+
+<body>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>最低 - 最高 溫度0-12hr</th>
+                <th>最低 - 最高 溫度12-24hr</th>
+                <th>最低 - 最高 溫度24-36hr</th>
+            </tr>
+        </thead>
+        <tbody id="myTbody">
+
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>
+<script src="../jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+    // 氣象資料開放平台
+    // 註冊會員登入，會給一組授權碼，取api前要貼上
+    $(function () {
+        let url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-6EF81C08-DF1E-48AE-9932-EC8F0A9AC306&format=JSON"
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                // 取下一層資料的2種寫法↓
+                // console.log(res['records']['location'][2]['locationName']);
+                // console.log(res.result.fields[2].id);
+                let data = res['records']['location'];
+                let content = '';
+                data.forEach((value, key) => {
+                    // console.log(value);
+                    // console.log(value.locationName);
+                    // console.log(value.weatherElement[4].time[0].parameter.parameterName);
+                let time12=value.weatherElement[2].time[0].parameter.parameterName;
+                let time12H=value.weatherElement[4].time[0].parameter.parameterName;
+                let time24=value.weatherElement[2].time[1].parameter.parameterName;
+                let time24H=value.weatherElement[4].time[1].parameter.parameterName;
+                let time36=value.weatherElement[2].time[2].parameter.parameterName;
+                let time36H=value.weatherElement[4].time[2].parameter.parameterName;
+
+                // console.log(value.weatherElement[0].time[0].parameter.parameterName);
+                let weather12=value.weatherElement[0].time[0].parameter.parameterName;
+                let weather24=value.weatherElement[0].time[1].parameter.parameterName;
+                let weather36=value.weatherElement[0].time[2].parameter.parameterName;
+                    content = content + `<tr>
+                                    <td>${key + 1}</td>
+                                    <td>${value.locationName}</td>
+                                    <td>${time12}-${time12H}&deg C ${weather12}</td>
+                                    <td>${time24}-${time24H}&deg C ${weather24}</td>
+                                    <td>${time36}-${time36H}&deg C ${weather36}</td>
+                                </tr>`
+                });
+
+                $('#myTbody').html(content)
+                $('#myTable').DataTable({
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh-HANT.json'
+                    }
+                });
+            }
+        })
+
+    })
+</script>

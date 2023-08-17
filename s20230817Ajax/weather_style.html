@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <h3 class="text-center mt-3">氣象預報資料 36HR</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success" onclick="window.print()">print</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="新北市">新北市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="臺中市">臺中市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="高雄市">高雄市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="all" data-location="all">ALL</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col">
+                序號
+            </div>
+            <div class="col">
+                地點
+            </div>
+            <div class="col">
+                2023-08-17 12:00:00
+            </div>
+            <div class="col">
+                2023-08-17 18:00:00
+            </div>
+            <div class="col">
+                2023-08-18 06:00:00
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center" id="myContainer">
+
+    </div>
+
+</body>
+
+</html>
+<script src="../jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+<script>
+    // 搜尋氣象局 day night svg下載白天夜晚的天氣圖
+    $(function () {
+        const locationBtn = $('.locationBtn');
+        const myContainer = $('#myContainer');
+
+        function getValue(locationName) {
+            console.log(locationName);
+
+            let url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-6EF81C08-DF1E-48AE-9932-EC8F0A9AC306&format=JSON"
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    let data = res['records']['location'];
+                    let content = '';
+                    data.forEach((value, key) => {
+                        let locationNameByData = value.locationName;
+                        if (locationName == 'all') {
+
+                        } else {
+                            if (locationName != locationNameByData) {
+                                return;
+                            }
+                        }
+                        // console.log(value);
+                        // console.log(value.locationName);
+                        // console.log(value.weatherElement[4].time[0].parameter.parameterName);
+                        let time12 = `${value.weatherElement[2].time[0].parameter.parameterName}-${value.weatherElement[4].time[0].parameter.parameterName}`;
+                        let time24 = `${value.weatherElement[2].time[1].parameter.parameterName}-${value.weatherElement[4].time[1].parameter.parameterName}`;
+                        let time36 = `${value.weatherElement[2].time[2].parameter.parameterName}-${value.weatherElement[4].time[2].parameter.parameterName}`;
+                        // console.log(value.weatherElement[0].time[0].parameter.parameterName);
+                        let weather12 = value.weatherElement[0].time[0].parameter.parameterName;
+                        let weather24 = value.weatherElement[0].time[1].parameter.parameterName;
+                        let weather36 = value.weatherElement[0].time[2].parameter.parameterName;
+                        let pic12 = value.weatherElement[0].time[0].parameter.parameterValue;
+                        let pic24 = value.weatherElement[0].time[1].parameter.parameterValue;
+                        let pic36 = value.weatherElement[0].time[2].parameter.parameterValue;
+                        content = content + `
+                        <div class="row mt-3">
+                            <div class="col pt-3">
+                                ${key + 1}
+                            </div>
+                            <div class="col pt-3">
+                                ${value.locationName}
+                            </div>
+                            <div class="col">
+                                ${time12}&deg C
+                                <img src="./night/${pic12}.svg" alt="${weather12}" title="${weather12}">
+                            </div>
+                            <div class="col">
+                                ${time24}&deg C
+                                <img src="./day/${pic24}.svg" alt="${weather24}" title="${weather24}">
+                            </div>
+                            <div class="col">
+                                ${time36}&deg C
+                                <img src="./day/${pic36}.svg" alt="${weather36}" title="${weather36}">
+                            </div>
+                        </div>`
+                    });
+                    myContainer.append(content)
+                }
+            })
+        }
+
+        locationBtn.click(function () {
+            let dataLocation = $(this).attr('data-location');
+            // console.log(dataLocation);
+            getValue(dataLocation);
+        })
+    })
+</script>

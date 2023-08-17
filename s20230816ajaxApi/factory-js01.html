@@ -33,7 +33,6 @@
 
 </html>
 <script>
-
     $(function () {
         console.log('data', data);
         console.log('data[0]["id"]', data[3]["id"]);
@@ -45,6 +44,7 @@
 
         let content = '';
         for (let i = 0; i < data.length; i++) {
+        // 字串內穿插變數，整個字串前後用 ` 符包起來、變數用 ${ } 包起來，如下：
             content = content + `
             <tr>
                 <td>${data[i]["id"]}</td>
@@ -55,16 +55,6 @@
                 <td>${data[i]["url"]}</td>
             </tr>`;
         }
-        // let content = `
-        //     <tr>
-        //         <td>${data[0]["id"]}</td>
-        //         <td>${data[0]["area"]}</td>
-        //         <td>${data[0]["location"]}</td>
-        //         <td>${data[0]["name"]}</td>
-        //         <td>${data[0]["address"]}</td>
-        //         <td>${data[0]["url"]}</td>
-        //     </tr>`
-
         $('#myTbody').html(content);
         $('#myTable').DataTable();
     })

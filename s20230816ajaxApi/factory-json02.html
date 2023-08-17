@@ -56,9 +56,18 @@
                         </tr>`;
                 }
                 $('#myTbody').html(content);
-                $('#myTable').DataTable();
+                $('#myTable').DataTable({
+                    // 繁體中文化進DATAtable官網Manual->Plug-ins->Internationalisation->語系選Chinese (traditional)->copy 程式碼
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/zh-HANT.json'
+                    }
+                });
+
             }
         });
+
+
+
     })
 
 </script>
