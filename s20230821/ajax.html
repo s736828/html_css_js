@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="getBtn">test</button>
+    <script src="../jquery-3.7.0.min.js"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        const getBtn = $("#getBtn");
+        getBtn.click(function () {
+            console.log('ok');
+
+            // let url = "https://odws.hccg.gov.tw/001/Upload/25/opendataback/9059/1431/452e3ebc-2ba9-4e99-a533-72d1e659b2f5.json";
+            // let url = "http://localhost/getData_curl.php";
+            let url = "http://red-back.com/getData_curl.php";
+            // ↑ 到C:\Windows\System32\drivers\etc\hosts打開，加上127.0.0.1 red-back.com及 127.0.0.1 blue-front.com，
+            // 就是把本地的網址加上設定的這2個也可以
+
+            // let url = "http://localhost/test.php";
+            // let url = "http://127.0.0.1/test.php";
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                }
+            })
+        })
+    })
+</script>
+
+</html>
